@@ -1,114 +1,61 @@
-const services = [
-  { id: "01", title: "Experiencias digitales", text: "Sitios web y productos digitales que hacen que cada interacción tenga sentido.", label: "WEB / DIGITAL" },
-  { id: "02", title: "Software a medida", text: "Herramientas y plataformas creadas alrededor de los retos reales de cada negocio.", label: "ENGINEERING" },
-  { id: "03", title: "IA y automatización", text: "Procesos inteligentes que conectan información, equipos y nuevas oportunidades.", label: "AI / AUTOMATION" },
+const capabilities = [
+  { number: "01", title: "Estrategia digital", text: "Damos dirección a las ideas y encontramos oportunidades donde otros solo ven problemas.", symbol: "✳" },
+  { number: "02", title: "Desarrollo de software", text: "Creamos plataformas, productos y experiencias digitales pensadas para crecer.", symbol: "⌘" },
+  { number: "03", title: "Inteligencia artificial", text: "Conectamos datos, procesos y automatización para trabajar de forma más inteligente.", symbol: "✧" },
 ];
-
-const steps = [
-  { id: "01", title: "Entender", text: "Escuchamos, exploramos el contexto y definimos el verdadero desafío." },
-  { id: "02", title: "Diseñar", text: "Trazamos una dirección clara y convertimos ideas en experiencias." },
-  { id: "03", title: "Construir", text: "Desarrollamos, conectamos y hacemos evolucionar la solución." },
+const principles = [
+  { title: "Pensamiento estratégico", text: "Cada proyecto comienza con una pregunta: qué queremos transformar y por qué." },
+  { title: "Tecnología con propósito", text: "Elegimos las herramientas por lo que permiten lograr, no por seguir tendencias." },
+  { title: "Diseño que conecta", text: "Creamos experiencias claras, útiles y memorables para las personas." },
+  { title: "Evolución constante", text: "Construimos soluciones preparadas para adaptarse y abrir nuevos caminos." },
 ];
-
-function Mark() {
-  return <span className="vela-mark" aria-hidden="true"><span>V</span><i /></span>;
+function VelaMark() { return <span className="vela-mark" aria-hidden="true"><span>V</span><i /></span>; }
+function StarField() { return <div className="star-field" aria-hidden="true">{Array.from({ length: 24 }, (_, i) => <i key={i} />)}</div>; }
+function Constellation() {
+  return <div className="constellation-art" role="img" aria-label="Constelación VELA, símbolo de conexión y posibilidades">
+    <div className="constellation-glow" /><div className="constellation-orbit orbit-one" /><div className="constellation-orbit orbit-two" /><div className="constellation-orbit orbit-three" />
+    <svg viewBox="0 0 600 480" aria-hidden="true"><path d="M104 315 190 154 288 216 374 92 493 180 442 338 288 385 190 154" /><path d="M104 315 288 216 442 338M190 154 493 180M288 216 374 92" /></svg>
+    <i className="node node-a" /><i className="node node-b" /><i className="node node-c" /><i className="node node-d" /><i className="node node-e" /><i className="node node-f" />
+    <div className="constellation-center"><VelaMark /><span>VELA</span></div>
+    <span className="constellation-label label-top">IDEAS / 01</span><span className="constellation-label label-side">CONNECTION IS EVERYTHING</span><span className="constellation-label label-bottom">10° 58' N — 74° 47' W</span>
+  </div>;
 }
-
-function Arrow() {
-  return <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-1">↗</span>;
-}
-
-function InterfaceVisual() {
-  return (
-    <div className="interface-scene" aria-label="Composición visual abstracta del universo digital de VELA" role="img">
-      <div className="scene-halo" />
-      <div className="scene-orbit scene-orbit-a" /><div className="scene-orbit scene-orbit-b" />
-      <div className="scene-star star-a" /><div className="scene-star star-b" /><div className="scene-star star-c" />
-      <div className="scene-card scene-card-back"><span className="scene-card-kicker">VELA / SIGNAL</span><div className="signal-bars"><i /><i /><i /><i /><i /><i /><i /><i /></div><div className="signal-foot"><span>LIVE SYSTEM</span><b>CONNECTED</b></div></div>
-      <div className="scene-card scene-card-main">
-        <div className="scene-window"><span /><span /><span /><small>VELA / DIGITAL SPACE</small></div>
-        <div className="scene-main-copy"><small>IDEAS IN MOTION</small><strong>Make it<br /><em>possible.</em></strong><p>Strategy · Design · Technology</p></div>
-        <div className="scene-main-bottom"><span>01 — 03</span><div><i /><i /><i /></div><span>EXPLORE</span></div>
-      </div>
-      <div className="scene-floating scene-floating-top"><span className="floating-pulse" /> SYSTEM ONLINE</div>
-      <div className="scene-floating scene-floating-bottom"><b>V</b><span>ONE VISION<br />MANY POSSIBILITIES</span></div>
-    </div>
-  );
-}
-
 export default function Home() {
-  return (
-    <main className="vela-site">
-      <header className="site-header">
-        <a href="#inicio" className="brand" aria-label="VELA Technologies, inicio"><Mark /><span><b>VELA</b><small>TECHNOLOGIES</small></span></a>
-        <nav className="desktop-nav" aria-label="Navegación principal">
-          <a href="#universo">Universo VELA</a><a href="#soluciones">Soluciones</a><a href="#metodo">Nuestro enfoque</a>
-        </nav>
-        <a className="header-cta" href="#contacto">Hablemos <Arrow /></a>
-      </header>
-
-      <section className="hero-section" id="inicio">
-        <div className="hero-grid" />
-        <div className="hero-copy">
-          <div className="eyebrow"><i /> TECNOLOGÍA CON DIRECCIÓN <i /></div>
-          <h1>Ideas que conectan.<br /><em>Posibilidades</em> que<br />se vuelven realidad.</h1>
-          <p>En VELA unimos estrategia, creatividad y tecnología para construir soluciones digitales que impulsan lo que viene.</p>
-          <div className="hero-actions"><a href="#soluciones" className="button-primary group">Explora soluciones <Arrow /></a><a href="#universo" className="button-text">Conoce nuestro universo <span>↓</span></a></div>
-          <div className="hero-note"><span>01 / 03</span><i /><span>INNOVACIÓN QUE SE CONECTA</span></div>
-        </div>
-        <div className="hero-art"><InterfaceVisual /></div>
-        <div className="hero-side-label">STRATEGY · DESIGN · TECHNOLOGY</div>
-      </section>
-
-      <section className="capability-ribbon" aria-label="Áreas de trabajo">
-        <span>DONDE LAS IDEAS TOMAN FORMA</span><i /> <b>DESARROLLO DIGITAL</b><i /><b>SOFTWARE</b><i /><b>INTELIGENCIA ARTIFICIAL</b><i /><b>INNOVACIÓN</b>
-      </section>
-
-      <section className="intro-section section-wrap" id="universo">
-        <div className="section-index">01 <span>—</span> EL UNIVERSO VELA</div>
-        <div className="intro-layout">
-          <h2>La tecnología<br />es el medio.<br /><em>El impacto es<br />el objetivo.</em></h2>
-          <div className="intro-description"><div className="gold-rule" /><p>Creemos que las mejores ideas aparecen cuando las conexiones correctas suceden. Por eso VELA reúne distintas disciplinas para transformar desafíos en experiencias, herramientas y soluciones con propósito.</p><a href="#contacto" className="inline-link">Descubre lo que podemos crear <Arrow /></a></div>
-        </div>
-        <div className="intro-bottom"><span>UNA VISIÓN INTEGRAL</span><p>ESTRATEGIA <b>+</b> CREATIVIDAD <b>+</b> TECNOLOGÍA</p><span>VELA / 2026</span></div>
-      </section>
-
-      <section className="solutions-section" id="soluciones">
-        <div className="section-wrap">
-          <div className="section-index">02 <span>—</span> QUÉ HACEMOS</div>
-          <div className="section-heading"><h2>Un mundo de ideas.<br /><em>Un ecosistema de soluciones.</em></h2><p>Capacidades que trabajan juntas para resolver problemas reales y abrir nuevas oportunidades.</p></div>
-          <div className="solutions-grid">
-            {services.map((service) => <article className="solution-card" key={service.id}>
-              <div className="solution-top"><span>{service.id}</span><span>{service.label}</span></div>
-              <div className="solution-graphic" aria-hidden="true"><div className="graphic-ring" /><div className="graphic-ring graphic-ring-inner" /><div className="graphic-core">{service.id === "01" ? "✳" : service.id === "02" ? "{ }" : "✧"}</div><i /><i /><i /></div>
-              <div className="solution-copy"><h3>{service.title}</h3><p>{service.text}</p><a href="#contacto" aria-label={`Consultar sobre ${service.title}`}><Arrow /></a></div>
-            </article>)}
-          </div>
-        </div>
-      </section>
-
-      <section className="feature-section section-wrap">
-        <div className="feature-visual">
-          <div className="feature-orbit feature-orbit-one" /><div className="feature-orbit feature-orbit-two" />
-          <div className="feature-constellation"><i /><i /><i /><i /><i /><i /><i /><svg viewBox="0 0 400 300" aria-hidden="true"><path d="M62 205 L115 94 L190 133 L248 54 L324 126 L275 230 L160 248 Z" /></svg></div>
-          <div className="feature-caption"><span>VELA CONSTELLATION</span><b>10° 58' N / 74° 47' W</b></div>
-        </div>
-        <div className="feature-copy"><div className="section-index">03 <span>—</span> UNA FORMA DE CONECTAR</div><h2>Todo está<br />conectado.<br /><em>Hagámoslo<br />posible.</em></h2><p>Desde la primera conversación hasta la solución final, pensamos cada proyecto como un sistema: cada decisión, cada detalle y cada tecnología cumple una función.</p><a href="#metodo" className="inline-link">Así trabajamos <Arrow /></a></div>
-      </section>
-
-      <section className="method-section" id="metodo">
-        <div className="section-wrap">
-          <div className="section-index">04 <span>—</span> CÓMO LO HACEMOS</div>
-          <div className="section-heading"><h2>De la idea<br /><em>al siguiente horizonte.</em></h2><p>Un proceso flexible, colaborativo y enfocado en crear algo que realmente aporte valor.</p></div>
-          <div className="method-grid">{steps.map((step) => <article key={step.id}><span>{step.id}</span><div className="method-line" /><h3>{step.title}</h3><p>{step.text}</p></article>)}</div>
-        </div>
-      </section>
-
-      <section className="contact-section" id="contacto">
-        <div className="contact-stars" /><div className="section-wrap contact-inner"><div className="section-index">05 <span>—</span> EMPECEMOS ALGO NUEVO</div><h2>¿Qué podemos<br /><em>hacer posible</em><br />contigo?</h2><div className="contact-bottom"><p>Cuéntanos qué tienes en mente. Estamos listos para explorar nuevas conexiones.</p><a className="button-primary group" href="mailto:contacto@velatechnology.com">Hablemos <Arrow /></a></div></div>
-      </section>
-
-      <footer className="site-footer"><a href="#inicio" className="brand"><Mark /><span><b>VELA</b><small>TECHNOLOGIES</small></span></a><p>INNOVATION · DIRECTION · GROWTH</p><span>© {new Date().getFullYear()} VELA Technologies</span></footer>
-    </main>
-  );
+  return <main className="vela-site">
+    <header className="site-header">
+      <a href="#inicio" className="brand" aria-label="VELA Technologies, inicio"><VelaMark /><span><b>VELA</b><small>TECHNOLOGIES</small></span></a>
+      <nav className="desktop-nav" aria-label="Navegación principal"><a href="#universo">Universo VELA</a><a href="#posibilidades">Posibilidades</a><a href="#enfoque">Nuestro enfoque</a><a href="#ideas">Ideas</a></nav>
+      <a className="header-cta" href="#contacto">Hablemos <span>↗</span></a>
+    </header>
+    <section className="hero-section" id="inicio">
+      <StarField />
+      <div className="hero-copy"><div className="eyebrow"><i /> EL FUTURO SE CONSTRUYE EN CONEXIÓN</div>
+        <h1>Hagamos algo<br /><em>extraordinario</em><br />con tecnología.</h1>
+        <p>Conectamos estrategia, creatividad y tecnología para convertir grandes ideas en soluciones que mueven el mundo.</p>
+        <div className="hero-actions"><a href="#posibilidades" className="button-primary">Explora las posibilidades <span>↗</span></a><a href="#universo" className="text-link">Conoce VELA <span>↓</span></a></div>
+      </div>
+      <div className="hero-art"><Constellation /></div>
+      <div className="hero-bottomline"><span>01 — 05</span><span>ESTRATEGIA · DISEÑO · TECNOLOGÍA</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+    <section className="proof-strip"><span className="proof-intro">UN UNIVERSO DE POSIBILIDADES</span><div><b>ESTRATEGIA</b><i /><b>SOFTWARE</b><i /><b>INTELIGENCIA ARTIFICIAL</b><i /><b>EXPERIENCIAS DIGITALES</b><i /><b>INNOVACIÓN</b></div></section>
+    <section className="about-section section-wrap" id="universo"><div className="section-kicker"><span>01</span> / ¿QUÉ ES VELA?</div>
+      <div className="about-grid"><h2>Un punto de<br />partida para<br /><em>lo que sigue.</em></h2><div className="about-copy"><span className="gold-line" /><p>VELA nace de una idea simple: las grandes transformaciones ocurren cuando las cosas correctas se conectan. Somos un universo de pensamiento, diseño y tecnología enfocado en convertir posibilidades en realidades.</p><a href="#enfoque" className="inline-link">Descubre nuestra visión <span>↗</span></a></div></div>
+    </section>
+    <section className="possibilities-section" id="posibilidades"><div className="section-wrap"><div className="section-kicker"><span>02</span> / LO QUE PODEMOS CREAR</div>
+      <div className="possibilities-heading"><h2>Las posibilidades<br /><em>no tienen límites.</em></h2><p>Un ecosistema de capacidades que se conectan para crear soluciones relevantes, útiles y preparadas para el futuro.</p></div>
+      <div className="capability-grid">{capabilities.map((item) => <article className="capability-card" key={item.number}><div className="capability-meta"><span>{item.number}</span><span>VELA / CAPABILITY</span></div><div className="capability-symbol">{item.symbol}<i /><i /></div><div className="capability-content"><h3>{item.title}</h3><p>{item.text}</p><a href="#contacto" aria-label={"Conversemos sobre " + item.title}>↗</a></div></article>)}</div>
+    </div></section>
+    <section className="future-section"><div className="future-art"><StarField /><div className="future-orbit future-orbit-a" /><div className="future-orbit future-orbit-b" /><div className="future-core"><VelaMark /><span>THE FUTURE<br />IS CONNECTED</span></div><div className="future-coordinate">VELA CONSTELLATION / 001</div></div>
+      <div className="future-copy"><div className="section-kicker"><span>03</span> / EL SIGUIENTE HORIZONTE</div><h2>El futuro es ahora.<br /><em>Hagámoslo posible.</em></h2><p>Las ideas necesitan más que inspiración: necesitan dirección, herramientas y personas capaces de llevarlas más lejos. En VELA conectamos esas piezas.</p><a className="button-primary" href="#contacto">Construyamos el futuro <span>↗</span></a></div>
+    </section>
+    <section className="approach-section section-wrap" id="enfoque"><div className="section-kicker"><span>04</span> / NUESTRA FORMA DE PENSAR</div>
+      <div className="approach-heading"><h2>La diferencia está<br />en <em>cómo conectamos.</em></h2><p>No creemos en soluciones aisladas. Creemos en una visión integral donde cada decisión suma y cada detalle tiene un propósito.</p></div>
+      <div className="principles-grid">{principles.map((item, i) => <article key={item.title}><span>0{i + 1}</span><div className="principle-rule" /><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+    </section>
+    <section className="ideas-section" id="ideas"><div className="section-wrap ideas-inner"><div className="section-kicker"><span>05</span> / IDEAS EN MOVIMIENTO</div>
+      <div className="ideas-heading"><h2>Todo gran cambio<br />comienza con <em>una idea.</em></h2><p>Exploramos nuevas conexiones entre tecnología, creatividad y futuro. ¿Tienes una idea que merece hacerse realidad?</p></div><a href="#contacto" className="ideas-link">Hablemos de lo que viene <span>↗</span></a>
+    </div></section>
+    <section className="contact-section" id="contacto"><div className="section-wrap contact-inner"><div className="section-kicker"><span>06</span> / TU PRÓXIMA IDEA COMIENZA AQUÍ</div><h2>¿Y si hacemos<br /><em>que suceda?</em></h2><div className="contact-bottom"><p>Cuéntanos qué imaginas. Estamos listos para conectar las piezas y construir algo extraordinario.</p><a className="button-primary" href="mailto:contacto@velatechnology.com">Conversemos <span>↗</span></a></div></div></section>
+    <footer className="site-footer"><a href="#inicio" className="brand"><VelaMark /><span><b>VELA</b><small>TECHNOLOGIES</small></span></a><p>IDEAS CONNECTED. POSSIBILITIES UNLIMITED.</p><span>© {new Date().getFullYear()} VELA Technologies</span></footer>
+  </main>;
 }
