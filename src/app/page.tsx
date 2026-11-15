@@ -1,4 +1,5 @@
 import SiteFrame from "../components/layout/SiteFrame";
+import HeroParticles from "../components/hero/HeroParticles";
 
 function VelaMark() {
   return <span className="vela-mark" aria-hidden="true"><span>V</span><i /></span>;
@@ -24,6 +25,7 @@ export default function Home() {
     <main className="vela-site">
       <section className="hero-section" id="inicio">
         <StarField />
+        <HeroParticles />
         <div className="hero-copy">
           <div className="eyebrow"><i /> THE DIGITAL UNIVERSE</div>
           <h1>Ideas que conectan.<br /><em>Posibilidades</em><br />sin límites.</h1>
