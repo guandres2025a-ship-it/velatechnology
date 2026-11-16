@@ -1,19 +1,15 @@
 "use client";
 
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { useEffect, useMemo, useState } from "react";
+import Particles, { ParticlesProvider } from "@tsparticles/react";
+import { useMemo } from "react";
 import type { Engine, ISourceOptions } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
+const initializeParticles = async (engine: Engine): Promise<void> => {
+  await loadSlim(engine);
+};
+
 export default function HeroParticles() {
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    initParticlesEngine(async (engine: Engine) => {
-      await loadSlim(engine);
-    }).then(() => setReady(true));
-  }, []);
-
   const options: ISourceOptions = useMemo(() => ({
     fullScreen: { enable: false },
     background: { color: { value: "transparent" } },
@@ -55,11 +51,11 @@ export default function HeroParticles() {
     pauseOnOutsideViewport: true,
   }), []);
 
-  if (!ready) return null;
-
   return (
-    <div className="hero-particles" aria-hidden="true">
-      <Particles id="vela-hero-particles" options={options} />
-    </div>
+    <ParticlesProvider init={initializeParticles}>
+      <div className="hero-particles" aria-hidden="true">
+        <Particles id="vela-hero-particles" options={options} />
+      </div>
+    </ParticlesProvider>
   );
 }
