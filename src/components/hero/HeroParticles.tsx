@@ -37,7 +37,7 @@ export default function HeroParticles() {
         straight: false,
         outModes: { default: "bounce" },
       },
-      number: { value: 52, density: { enable: true, width: 900, height: 650 } },
+      number: { value: 68, density: { enable: true, width: 850, height: 600 } },
       opacity: { value: { min: 0.28, max: 0.8 } },
       shape: { type: "circle" },
       size: { value: { min: 1.2, max: 3.2 } },
