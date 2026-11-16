@@ -103,3 +103,45 @@
 @media(prefers-reduced-motion:reduce){
  .constellation-glow,.constellation-orbit,.constellation-art svg path,.constellation-art .node,.constellation-center .vela-mark{animation:none!important}
 }
+
+
+/* Deeper VELA hero atmosphere: layered nebula light and a richer star field */
+.hero-section::before{
+ content:"";
+ position:absolute;
+ inset:0;
+ z-index:0;
+ pointer-events:none;
+ background:
+  radial-gradient(ellipse at 76% 48%,rgba(36,69,101,.34) 0%,rgba(16,39,64,.18) 27%,transparent 58%),
+  radial-gradient(ellipse at 18% 18%,rgba(216,187,122,.09) 0%,transparent 34%),
+  radial-gradient(ellipse at 48% 100%,rgba(26,57,86,.24) 0%,transparent 48%),
+  linear-gradient(112deg,rgba(7,20,38,.15),rgba(12,31,52,.18) 54%,rgba(7,20,38,.08));
+}
+.hero-section::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ z-index:0;
+ pointer-events:none;
+ opacity:.38;
+ background-image:
+  radial-gradient(1px 1px at 12% 22%,rgba(239,223,184,.9) 50%,transparent 100%),
+  radial-gradient(1px 1px at 28% 74%,rgba(185,204,226,.8) 50%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 46% 13%,rgba(239,223,184,.8) 50%,transparent 100%),
+  radial-gradient(1px 1px at 58% 84%,rgba(185,204,226,.7) 50%,transparent 100%),
+  radial-gradient(1px 1px at 88% 18%,rgba(239,223,184,.85) 50%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 94% 68%,rgba(239,223,184,.75) 50%,transparent 100%);
+ background-size:100% 100%;
+ animation:vela-distant-stars 9s ease-in-out infinite alternate;
+}
+.hero-section .star-field{opacity:.68}
+@keyframes vela-distant-stars{from{opacity:.22}to{opacity:.48}}
+@media(max-width:720px){
+ .hero-section::before{background:
+  radial-gradient(ellipse at 50% 68%,rgba(36,69,101,.3),transparent 58%),
+  radial-gradient(ellipse at 12% 12%,rgba(216,187,122,.07),transparent 35%),
+  linear-gradient(180deg,rgba(7,20,38,.04),rgba(12,31,52,.18))}
+ .hero-section::after{opacity:.28}
+}
+@media(prefers-reduced-motion:reduce){.hero-section::after{animation:none}}
