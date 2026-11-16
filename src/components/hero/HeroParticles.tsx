@@ -1,13 +1,8 @@
 "use client";
 
-import Particles, { ParticlesProvider } from "@tsparticles/react";
+import Particles from "@tsparticles/react";
 import { useMemo } from "react";
-import type { Engine, ISourceOptions } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
-
-const initializeParticles = async (engine: Engine): Promise<void> => {
-  await loadSlim(engine);
-};
+import type { ISourceOptions } from "@tsparticles/engine";
 
 export default function HeroParticles() {
   const options: ISourceOptions = useMemo(() => ({
@@ -52,10 +47,8 @@ export default function HeroParticles() {
   }), []);
 
   return (
-    <ParticlesProvider init={initializeParticles}>
-      <div className="hero-particles" aria-hidden="true">
-        <Particles id="vela-hero-particles" options={options} />
-      </div>
-    </ParticlesProvider>
+    <div className="hero-particles" aria-hidden="true">
+      <Particles id="vela-hero-particles" options={options} />
+    </div>
   );
 }
