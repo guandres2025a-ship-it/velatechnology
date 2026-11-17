@@ -30,7 +30,7 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} VELA Technologies. Todos los derechos reservados.</span>
         <span>DISEÑADO PARA LO QUE VIENE.</span>
-        <a href="#inicio">VOLVER ARRIBA ↑</a>
+        <a href="#">VOLVER ARRIBA ↑</a>
       </div>
     </footer>
   </>;
