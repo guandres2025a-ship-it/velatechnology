@@ -8,7 +8,7 @@ export default function HeroParticles() {
   const options: ISourceOptions = useMemo(() => ({
     fullScreen: { enable: false },
     background: { color: { value: "transparent" } },
-    fpsLimit: 60,
+    fpsLimit: 45,
     detectRetina: true,
     interactivity: {
       events: {
@@ -16,7 +16,7 @@ export default function HeroParticles() {
         onClick: { enable: true, mode: "push" },
       },
       modes: {
-        grab: { distance: 145, links: { opacity: 0.35 } },
+        grab: { distance: 125, links: { opacity: 0.28 } },
         push: { quantity: 2 },
       },
     },
@@ -25,19 +25,19 @@ export default function HeroParticles() {
       links: {
         enable: true,
         color: "#D8BB7A",
-        distance: 175,
-        opacity: 0.2,
+        distance: 155,
+        opacity: 0.16,
         width: 1,
       },
       move: {
         enable: true,
-        speed: 0.82,
+        speed: 0.62,
         direction: "none",
         random: true,
         straight: false,
         outModes: { default: "bounce" },
       },
-      number: { value: 68, density: { enable: true, width: 850, height: 600 } },
+      number: { value: 48, density: { enable: true, width: 850, height: 600 } },
       opacity: { value: { min: 0.28, max: 0.8 } },
       shape: { type: "circle" },
       size: { value: { min: 1.2, max: 3.2 } },
