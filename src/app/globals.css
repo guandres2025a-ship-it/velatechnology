@@ -1091,3 +1091,30 @@ a:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .mobile-menu-toggle span, .mobile-nav { transition: none !important; }
 }
+
+
+/* VELA / FOOTER REFINEMENT — one surface, one-line call to action */
+.site-footer--universe {
+  background: #090d19;
+}
+.footer-contact-column > strong {
+  white-space: nowrap;
+  font-size: clamp(19px, 2.05vw, 27px);
+  letter-spacing: -.055em;
+}
+@media (max-width: 760px) {
+  .footer-contact-column {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .footer-contact-column > strong {
+    white-space: nowrap;
+    font-size: clamp(19px, 5.3vw, 26px);
+  }
+}
+@media (max-width: 360px) {
+  .footer-contact-column > strong {
+    font-size: 18px;
+    letter-spacing: -.06em;
+  }
+}
