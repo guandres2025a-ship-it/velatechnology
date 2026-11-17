@@ -145,3 +145,105 @@
  .hero-section::after{opacity:.28}
 }
 @media(prefers-reduced-motion:reduce){.hero-section::after{animation:none}}
+
+
+/* VELA COSMIC EXPANSION — layered nebula, stellar depth and cinematic light */
+.hero-section{
+ background:
+  radial-gradient(ellipse at 76% 48%,rgba(43,83,124,.28),transparent 48%),
+  radial-gradient(ellipse at 18% 82%,rgba(23,48,83,.3),transparent 46%),
+  linear-gradient(115deg,#061326 0%,#091a30 48%,#071529 100%);
+}
+.hero-section::before{
+ background:
+  radial-gradient(ellipse 38% 48% at 76% 47%,rgba(62,102,145,.32),transparent 72%),
+  radial-gradient(ellipse 26% 34% at 69% 23%,rgba(107,75,125,.15),transparent 74%),
+  radial-gradient(ellipse 30% 42% at 91% 78%,rgba(185,139,83,.12),transparent 72%),
+  radial-gradient(ellipse 42% 35% at 15% 88%,rgba(31,69,105,.22),transparent 74%),
+  radial-gradient(ellipse 28% 24% at 36% 10%,rgba(216,187,122,.075),transparent 75%),
+  linear-gradient(112deg,rgba(5,16,31,.22),rgba(8,25,45,.04) 55%,rgba(5,16,31,.12));
+ filter:saturate(1.12);
+ animation:vela-nebula-drift 24s ease-in-out infinite alternate;
+}
+.hero-section::after{
+ opacity:.48;
+ background-image:
+  radial-gradient(1px 1px at 7% 18%,rgba(239,223,184,.95) 50%,transparent 100%),
+  radial-gradient(1px 1px at 13% 67%,rgba(185,204,226,.85) 50%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 21% 39%,rgba(239,223,184,.9) 50%,transparent 100%),
+  radial-gradient(1px 1px at 31% 12%,rgba(185,204,226,.8) 50%,transparent 100%),
+  radial-gradient(1px 1px at 39% 83%,rgba(239,223,184,.8) 50%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 52% 26%,rgba(239,223,184,.9) 50%,transparent 100%),
+  radial-gradient(1px 1px at 59% 72%,rgba(185,204,226,.85) 50%,transparent 100%),
+  radial-gradient(1px 1px at 68% 9%,rgba(239,223,184,.9) 50%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 82% 31%,rgba(239,223,184,.85) 50%,transparent 100%),
+  radial-gradient(1px 1px at 91% 58%,rgba(185,204,226,.85) 50%,transparent 100%),
+  radial-gradient(1px 1px at 96% 88%,rgba(239,223,184,.9) 50%,transparent 100%);
+ animation:vela-distant-stars 8s ease-in-out infinite alternate;
+}
+.star-field{opacity:.82}
+.star-field i{animation:vela-star-twinkle 4.8s ease-in-out infinite;box-shadow:0 0 7px 1px #d8bb7a66}
+.star-field i:nth-child(3n){animation-delay:-1.4s}
+.star-field i:nth-child(4n){width:3px;height:3px;animation-delay:-2.7s}
+.star-field i:nth-child(25){left:4%;top:54%}
+.star-field i:nth-child(26){left:11%;top:91%}
+.star-field i:nth-child(27){left:24%;top:27%}
+.star-field i:nth-child(28){left:34%;top:6%}
+.star-field i:nth-child(29){left:42%;top:66%}
+.star-field i:nth-child(30){left:53%;top:48%}
+.star-field i:nth-child(31){left:61%;top:19%}
+.star-field i:nth-child(32){left:72%;top:80%}
+.star-field i:nth-child(33){left:79%;top:49%}
+.star-field i:nth-child(34){left:89%;top:94%}
+.star-field i:nth-child(35){left:97%;top:13%}
+.star-field i:nth-child(36){left:3%;top:5%}
+.constellation-art{isolation:isolate}
+.constellation-art::before{
+ content:"";
+ position:absolute;
+ z-index:-1;
+ width:min(92%,520px);
+ aspect-ratio:1;
+ border-radius:50%;
+ background:
+  radial-gradient(circle at 50% 50%,rgba(238,210,155,.12),transparent 25%),
+  radial-gradient(ellipse at 50% 50%,rgba(55,105,150,.23),transparent 56%),
+  radial-gradient(ellipse at 42% 62%,rgba(126,87,132,.13),transparent 68%);
+ filter:blur(15px);
+ animation:vela-cosmic-pulse 9s ease-in-out infinite;
+}
+.constellation-art::after{
+ content:"";
+ position:absolute;
+ z-index:-1;
+ width:88%;
+ height:62%;
+ border:1px solid rgba(165,190,218,.12);
+ border-radius:50%;
+ transform:rotate(-24deg);
+ box-shadow:0 0 45px rgba(91,137,177,.08),inset 0 0 35px rgba(91,137,177,.05);
+}
+.constellation-glow{
+ background:radial-gradient(circle,rgba(216,187,122,.2) 0%,rgba(72,117,157,.13) 30%,rgba(45,77,113,.07) 48%,transparent 70%);
+ filter:blur(16px);
+}
+.constellation-orbit{box-shadow:0 0 18px rgba(216,187,122,.055)}
+.constellation-art svg path{stroke:#e3c98f;opacity:.86;filter:drop-shadow(0 0 6px rgba(216,187,122,.65))}
+.constellation-center .vela-mark{background:radial-gradient(circle,rgba(216,187,122,.12),rgba(7,20,38,.25) 72%);border-color:#efdfb899}
+.node{width:9px;height:9px;box-shadow:0 0 22px 6px rgba(216,187,122,.65),0 0 48px 12px rgba(113,157,196,.22)}
+@keyframes vela-nebula-drift{0%{transform:scale(1) translate3d(0,0,0);opacity:.82}100%{transform:scale(1.08) translate3d(-1.2%,1%,0);opacity:1}}
+@keyframes vela-star-twinkle{0%,100%{opacity:.28;transform:scale(.72)}50%{opacity:1;transform:scale(1.35)}}
+@keyframes vela-cosmic-pulse{0%,100%{opacity:.62;transform:scale(.94)}50%{opacity:1;transform:scale(1.06)}}
+@media(max-width:720px){
+ .hero-section{background:
+  radial-gradient(ellipse at 50% 68%,rgba(43,83,124,.28),transparent 55%),
+  linear-gradient(180deg,#061326 0%,#091a30 58%,#071529 100%)}
+ .hero-section::before{background:
+  radial-gradient(ellipse 78% 30% at 50% 72%,rgba(62,102,145,.27),transparent 74%),
+  radial-gradient(ellipse 52% 24% at 80% 62%,rgba(107,75,125,.12),transparent 75%),
+  radial-gradient(ellipse 65% 28% at 18% 88%,rgba(31,69,105,.2),transparent 74%)}
+ .constellation-art::after{width:94%;height:58%}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-section::before,.star-field i,.constellation-art::before{animation:none!important}
+}
