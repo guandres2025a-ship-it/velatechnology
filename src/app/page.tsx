@@ -100,6 +100,48 @@ export default function Home() {
           <div className="contact-footnote"><span>ESTRATEGIA · DISEÑO · TECNOLOGÍA</span><span>LET’S BUILD WHAT’S NEXT.</span></div>
         </div>
       </section>
+      <section className="selected-work" id="proyectos-destacados">
+        <div className="section-wrap">
+          <div className="selected-work-heading">
+            <div>
+              <div className="section-kicker"><span>04</span> / TRABAJO EN ACCIÓN</div>
+              <h2>Selected<br /><em>universes.</em></h2>
+            </div>
+            <p>Tres proyectos. Tres identidades. Una misma visión: convertir ideas en experiencias digitales con propósito.</p>
+          </div>
+          <div className="selected-work-grid">
+            <a className="work-card work-card--featured" href="https://velatechnology.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Explorar el portafolio de VELA Technology">
+              <div className="work-card-visual work-visual--vela" aria-hidden="true">
+                <span className="work-orbit work-orbit--a" /><span className="work-orbit work-orbit--b" /><span className="work-orbit work-orbit--c" />
+                <span className="work-visual-core">V</span><span className="work-visual-caption">A UNIVERSE OF INNOVATION</span>
+              </div>
+              <div className="work-card-info">
+                <div><span className="work-category">01 / PROYECTO PROPIO</span><h3>VELA Technology</h3><p>El universo digital que reúne nuestra visión, capacidades y soluciones.</p></div>
+                <span className="work-card-arrow">↗</span>
+              </div>
+            </a>
+            <a className="work-card" href="https://ronald-hernandez.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Explorar la landing page de Ronald Hernández">
+              <div className="work-card-visual work-visual--ronald" aria-hidden="true">
+                <span className="work-art-frame"><i /><i /><i /><b>RH</b></span><span className="work-visual-caption">ART · CULTURE · IDENTITY</span>
+              </div>
+              <div className="work-card-info">
+                <div><span className="work-category">02 / DISEÑO Y DESARROLLO WEB</span><h3>Ronald Hernández</h3><p>Una presencia digital para dar espacio a su trayectoria y universo artístico.</p></div>
+                <span className="work-card-arrow">↗</span>
+              </div>
+            </a>
+            <a className="work-card" href="https://nueva-jerusalen.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Explorar la landing page de Iglesia Nueva Jerusalén Casa del Dios Altísimo">
+              <div className="work-card-visual work-visual--church" aria-hidden="true">
+                <span className="church-light" /><span className="church-cross">✝</span><span className="work-visual-caption">FAITH · COMMUNITY · PURPOSE</span>
+              </div>
+              <div className="work-card-info">
+                <div><span className="work-category">03 / DISEÑO Y DESARROLLO WEB</span><h3>Iglesia Nueva Jerusalén</h3><p>Una landing institucional para comunicar su misión y conectar con su comunidad.</p></div>
+                <span className="work-card-arrow">↗</span>
+              </div>
+            </a>
+          </div>
+          <div className="selected-work-foot"><span>VELA TECHNOLOGY</span><span>IDEAS MADE DIGITAL <i>✳</i></span></div>
+        </div>
+      </section>
     </main>
   </SiteFrame>;
 }
