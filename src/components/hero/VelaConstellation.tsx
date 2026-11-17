@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import type { PointerEvent } from "react";
 
 export default function VelaConstellation() {
   const [awakened, setAwakened] = useState(false);
 
-  function moveField(event: React.PointerEvent<HTMLDivElement>) {
+  function moveField(event: PointerEvent<HTMLDivElement>) {
     if (event.pointerType === "touch") return;
     const rect = event.currentTarget.getBoundingClientRect();
     const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
