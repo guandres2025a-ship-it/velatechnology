@@ -247,3 +247,85 @@
 @media(prefers-reduced-motion:reduce){
  .hero-section::before,.star-field i,.constellation-art::before{animation:none!important}
 }
+
+
+/* VELA signature constellation — the network is the brand, not decoration */
+.vela-constellation{
+ --pointer-x:0;
+ --pointer-y:0;
+ --vela-shift-x:calc(var(--pointer-x)*5px);
+ --vela-shift-y:calc(var(--pointer-y)*5px);
+ overflow:visible;
+ cursor:default;
+}
+.vela-constellation .constellation-glow{
+ width:390px;height:390px;
+ background:radial-gradient(circle,rgba(239,213,163,.2) 0%,rgba(64,116,157,.16) 27%,rgba(42,75,112,.08) 49%,transparent 72%);
+ transform:translate3d(var(--vela-shift-x),var(--vela-shift-y),0);
+ transition:transform .45s ease-out;
+}
+.vela-constellation .constellation-orbit{opacity:.5;border-color:rgba(157,190,218,.34)}
+.vela-constellation .orbit-one{width:470px;height:210px;border-color:rgba(216,187,122,.48)}
+.vela-constellation .orbit-two{width:350px;height:330px;border-color:rgba(119,163,201,.28)}
+.vela-constellation .orbit-three{width:280px;height:410px;border-color:rgba(216,187,122,.18)}
+.vela-constellation svg{z-index:1;overflow:visible;transform:translate3d(calc(var(--pointer-x)*-3px),calc(var(--pointer-y)*-3px),0);transition:transform .5s ease-out}
+.vela-constellation .network-path{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.15;stroke:#b9cce0;opacity:.5;filter:drop-shadow(0 0 4px rgba(145,184,216,.45));stroke-dasharray:2 9;animation:vela-network-travel 22s linear infinite}
+.vela-constellation .path-main{stroke:#e6d1a4;stroke-width:1.45;opacity:.8;stroke-dasharray:9 13;animation-duration:19s}
+.vela-constellation .path-cross{opacity:.28;animation-duration:30s;animation-direction:reverse}
+.vela-constellation .path-inner{stroke:#8fb7d8;opacity:0;stroke-dasharray:2 18;animation:vela-network-signal 8s ease-in-out infinite}
+.vela-constellation .node{z-index:2;width:7px;height:7px;background:#dce8f3;box-shadow:0 0 13px 3px rgba(142,190,225,.65),0 0 26px rgba(216,187,122,.3)}
+.vela-constellation .node-a{left:17.3%;top:65.5%}
+.vela-constellation .node-b{left:31.2%;top:32%}
+.vela-constellation .node-c{left:47.7%;top:45%}
+.vela-constellation .node-d{left:62.3%;top:19.5%}
+.vela-constellation .node-e{left:82%;top:37.5%}
+.vela-constellation .node-f{left:73.5%;top:70.5%}
+.vela-constellation .node-g{left:48%;top:80%;width:5px;height:5px}
+.vela-constellation .node-h{left:9%;top:39%;width:5px;height:5px}
+.vela-constellation .constellation-center{
+ z-index:4;appearance:none;border:0;padding:0;background:transparent;color:var(--gold-light);
+ cursor:pointer;gap:10px;isolation:isolate;outline:none;
+ transform:translate3d(var(--vela-shift-x),var(--vela-shift-y),0);
+ transition:transform .45s ease-out;
+}
+.vela-constellation .constellation-center:focus-visible .vela-mark{outline:2px solid var(--gold-light);outline-offset:7px}
+.vela-constellation .vela-mark{
+ position:relative;z-index:2;width:82px;height:82px;font-size:40px;
+ background:radial-gradient(circle,rgba(239,223,184,.2),rgba(9,26,48,.88) 68%);
+ border-color:rgba(239,223,184,.9);
+ box-shadow:0 0 28px rgba(216,187,122,.3),inset 0 0 22px rgba(216,187,122,.12);
+}
+.vela-constellation .core-rings{position:absolute;width:132px;height:132px;display:grid;place-items:center;pointer-events:none}
+.vela-constellation .core-rings span{position:absolute;inset:0;border:1px solid rgba(216,187,122,.34);border-radius:50%;transform:scaleX(.72) rotate(25deg);animation:vela-core-ring 8s ease-in-out infinite}
+.vela-constellation .core-rings span:nth-child(2){inset:12px;border-color:rgba(146,184,218,.38);transform:scaleX(.72) rotate(-32deg);animation-delay:-2.5s}
+.vela-constellation .core-rings span:nth-child(3){inset:24px;border-color:rgba(216,187,122,.28);transform:scaleX(.72) rotate(68deg);animation-delay:-5s}
+.vela-constellation .core-word{font-size:10px;letter-spacing:.42em;padding-left:.42em}
+.vela-constellation .core-hint{font:7px ui-monospace,monospace;letter-spacing:.13em;color:#9eb1c6;white-space:nowrap;transition:color .25s}
+.vela-constellation .constellation-center:hover .core-hint{color:var(--gold-light)}
+.vela-constellation .constellation-caption{position:absolute;z-index:3;bottom:2%;left:0;right:0;text-align:center;color:#8297ae;font:7px ui-monospace,monospace;letter-spacing:.14em;transition:color .35s}
+.vela-constellation .constellation-label{z-index:3;color:#9aacc0}
+.vela-constellation .label-bottom{color:var(--gold)}
+.vela-constellation.is-awakened .constellation-glow{opacity:1;transform:scale(1.22);background:radial-gradient(circle,rgba(239,213,163,.3),rgba(69,137,183,.2) 34%,transparent 72%)}
+.vela-constellation.is-awakened .network-path{stroke:#efdfb8;opacity:.95;filter:drop-shadow(0 0 8px rgba(216,187,122,.85))}
+.vela-constellation.is-awakened .path-inner{opacity:.72;animation-duration:3.8s}
+.vela-constellation.is-awakened .node{background:#fff2d2;box-shadow:0 0 17px 5px rgba(239,223,184,.9),0 0 36px rgba(113,176,220,.5)}
+.vela-constellation.is-awakened .core-rings span{animation-duration:2.8s;border-color:rgba(239,223,184,.72)}
+.vela-constellation.is-awakened .constellation-caption{color:var(--gold-light)}
+@keyframes vela-network-travel{to{stroke-dashoffset:-240}}
+@keyframes vela-network-signal{0%,100%{opacity:0;stroke-dashoffset:0}35%,70%{opacity:.8}100%{stroke-dashoffset:-180}}
+@keyframes vela-core-ring{0%,100%{opacity:.38;scale:.94}50%{opacity:.9;scale:1.06}}
+@media(max-width:720px){
+ .vela-constellation{height:320px;transform:none}
+ .vela-constellation .constellation-glow{width:290px;height:290px}
+ .vela-constellation .orbit-one{width:340px;height:150px}
+ .vela-constellation .orbit-two{width:280px;height:245px}
+ .vela-constellation .orbit-three{width:230px;height:320px}
+ .vela-constellation .vela-mark{width:68px;height:68px;font-size:33px}
+ .vela-constellation .core-rings{width:112px;height:112px}
+ .vela-constellation .label-side{right:1%}
+ .vela-constellation .constellation-caption{bottom:0;font-size:6px}
+}
+@media(prefers-reduced-motion:reduce){
+ .vela-constellation .network-path,.vela-constellation .core-rings span{animation:none!important}
+ .vela-constellation .constellation-glow,.vela-constellation svg,.vela-constellation .constellation-center{transition:none!important}
+}
