@@ -46,11 +46,39 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="home-links section-wrap">
-        <a href="/universo"><span>01 / UNIVERSO</span><strong>Conoce qué nos mueve</strong><i>↗</i></a>
-        <a href="/soluciones"><span>02 / SOLUCIONES</span><strong>Descubre lo que podemos crear</strong><i>↗</i></a>
-        <a href="/proyectos"><span>03 / PROYECTOS</span><strong>Explora ideas en acción</strong><i>↗</i></a>
-        <a href="/enfoque"><span>04 / ENFOQUE</span><strong>Así conectamos las piezas</strong><i>↗</i></a>
+      <section className="home-links home-portals">
+        <div className="section-wrap">
+          <div className="portals-heading">
+            <div><div className="section-kicker"><span>02</span> / NAVEGA EL UNIVERSO</div><h2>Cuatro caminos.<br /><em>Una misma visión.</em></h2></div>
+            <p>Explora las dimensiones que dan forma a VELA. Cada una conecta una idea con nuevas posibilidades.</p>
+          </div>
+          <div className="portal-grid">
+            <a className="portal-card portal-card--universe" href="/universo">
+              <span className="portal-index">01 <i /> DISCOVER</span>
+              <span className="portal-art portal-art--universe" aria-hidden="true"><i /><i /><i /><b>V</b></span>
+              <span className="portal-content"><strong>El universo VELA</strong><small>Conoce qué nos mueve y la visión que nos impulsa.</small></span>
+              <span className="portal-arrow">↗</span>
+            </a>
+            <a className="portal-card portal-card--solutions" href="/soluciones">
+              <span className="portal-index">02 <i /> CREATE</span>
+              <span className="portal-art portal-art--solutions" aria-hidden="true"><i /><i /><i /><b>✳</b></span>
+              <span className="portal-content"><strong>Soluciones</strong><small>Ideas convertidas en herramientas, experiencias y tecnología.</small></span>
+              <span className="portal-arrow">↗</span>
+            </a>
+            <a className="portal-card portal-card--projects" href="/proyectos">
+              <span className="portal-index">03 <i /> EXPLORE</span>
+              <span className="portal-art portal-art--projects" aria-hidden="true"><i /><i /><i /><b>◈</b></span>
+              <span className="portal-content"><strong>Proyectos</strong><small>Descubre conceptos, experimentos e ideas en acción.</small></span>
+              <span className="portal-arrow">↗</span>
+            </a>
+            <a className="portal-card portal-card--approach" href="/enfoque">
+              <span className="portal-index">04 <i /> CONNECT</span>
+              <span className="portal-art portal-art--approach" aria-hidden="true"><i /><i /><i /><b>⌘</b></span>
+              <span className="portal-content"><strong>Nuestro enfoque</strong><small>La forma en que conectamos estrategia, diseño y tecnología.</small></span>
+              <span className="portal-arrow">↗</span>
+            </a>
+          </div>
+        </div>
       </section>
       <section className="home-contact"><div className="section-wrap"><div className="section-kicker"><span>05</span> / EL SIGUIENTE PASO</div><h2>¿Qué podemos<br /><em>hacer posible?</em></h2><a className="button-primary" href="/contacto">Hablemos de tu idea <span>↗</span></a></div></section>
     </main>
