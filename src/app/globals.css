@@ -961,3 +961,133 @@
   .footer-nav-column>a{font-size:11px}
   .footer-bottom{font-size:6px}
 }
+
+
+/* VELA / ACCESSIBILITY PASS — readable type, clear focus and touch targets */
+html { font-size: 16px; }
+body { font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif; }
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #d9c9ff;
+  outline-offset: 4px;
+}
+.desktop-nav a { font-size: 14px; }
+.site-header .header-cta { font-size: 13px; }
+.hero-copy > p,
+.home-intro--violet .home-intro-copy > p,
+.portals-heading > p,
+.home-contact--portal .contact-content > p,
+.content-hero > p,
+.content-row p,
+.footer-brand-column > p {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.eyebrow, .section-kicker { font-size: 11px; }
+.button-primary { font-size: 14px; letter-spacing: .04em; }
+.text-link { font-size: 14px; }
+.portal-content small { font-size: 14px; line-height: 1.65; }
+.portal-index { font-size: 10px; }
+.contact-overline { font-size: 10px; }
+.contact-main-link { font-size: 14px; }
+.footer-brand-column > p { color: #b9b8ca; }
+.footer-manifesto { color: #a3a1b8; font-size: 11px; letter-spacing: .1em; line-height: 1.6; }
+.footer-label { font-size: 11px; letter-spacing: .14em; margin-bottom: 20px; }
+.footer-nav-column > a { font-size: 15px; margin-bottom: 15px; }
+.footer-contact-link { font-size: 14px; }
+.footer-bottom { font-size: 11px; letter-spacing: .07em; color: #a4a4b7; }
+.footer-bottom a { color: #d0c5ef; }
+.contact-footnote { font-size: 10px; letter-spacing: .12em; color: #aaa8c0; }
+.mobile-menu-toggle, .mobile-nav { display: none; }
+
+@media (max-width: 980px) {
+  .desktop-nav { gap: 18px; }
+  .desktop-nav a { font-size: 13px; }
+}
+@media (max-width: 720px) {
+  .site-header { position: sticky; }
+  .site-header .desktop-nav { display: none; }
+  .site-header .header-cta { font-size: 12px; }
+  .mobile-menu-toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(190,211,232,.24);
+    border-radius: 50%;
+    background: rgba(255,255,255,.035);
+    color: #f2effb;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+  }
+  .mobile-menu-toggle span {
+    display: block;
+    width: 17px;
+    height: 1px;
+    background: #e7defb;
+    transition: transform .2s ease;
+  }
+  .mobile-menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .mobile-menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+  .mobile-nav {
+    position: absolute;
+    display: grid;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    top: calc(100% + 9px);
+    left: 0;
+    right: 0;
+    padding: 12px 18px;
+    border: 1px solid rgba(190,211,232,.2);
+    border-radius: 16px;
+    background: rgba(7,12,27,.97);
+    -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
+    box-shadow: 0 18px 45px rgba(0,0,0,.36);
+    transition: opacity .2s ease, visibility .2s ease;
+    z-index: 60;
+  }
+  .mobile-nav.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-nav a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(190,180,232,.1);
+    color: #e3e0f0;
+    font-size: 15px;
+  }
+  .mobile-nav a:last-child { border-bottom: 0; }
+  .mobile-nav a span { color: #bba8f4; font-size: 17px; }
+  .hero-copy > p,
+  .home-intro--violet .home-intro-copy > p,
+  .portals-heading > p,
+  .home-contact--portal .contact-content > p,
+  .content-hero > p,
+  .content-row p,
+  .footer-brand-column > p { font-size: 15px; }
+  .portal-content small { font-size: 13px; }
+  .footer-main { gap: 34px 22px; }
+  .footer-bottom { font-size: 10px; line-height: 1.7; }
+  .footer-manifesto { font-size: 10px; }
+  .footer-label { font-size: 10px; }
+  .footer-nav-column > a { font-size: 14px; }
+  .contact-footnote { font-size: 9px; }
+}
+@media (max-width: 420px) {
+  .site-header { padding-inline: 13px; }
+  .site-header .header-cta { padding: 8px 11px; }
+  .footer-bottom { font-size: 10px; }
+  .footer-contact-column > strong { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-toggle span, .mobile-nav { transition: none !important; }
+}
