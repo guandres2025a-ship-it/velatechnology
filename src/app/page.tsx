@@ -80,7 +80,26 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="home-contact"><div className="section-wrap"><div className="section-kicker"><span>05</span> / EL SIGUIENTE PASO</div><h2>¿Qué podemos<br /><em>hacer posible?</em></h2><a className="button-primary" href="/contacto">Hablemos de tu idea <span>↗</span></a></div></section>
+      <section className="home-contact home-contact--portal" id="contacto">
+        <div className="contact-cosmos" aria-hidden="true">
+          <div className="contact-glow" />
+          <div className="contact-ring contact-ring--one" />
+          <div className="contact-ring contact-ring--two" />
+          <div className="contact-ring contact-ring--three" />
+          <div className="contact-star contact-star--one" />
+          <div className="contact-star contact-star--two" />
+          <div className="contact-star contact-star--three" />
+          <div className="contact-monogram">V</div>
+        </div>
+        <div className="section-wrap contact-content">
+          <div className="section-kicker"><span>03</span> / EL SIGUIENTE PASO</div>
+          <div className="contact-overline">EVERYTHING STARTS WITH AN IDEA</div>
+          <h2>El futuro no<br />se espera. <em>Se crea.</em></h2>
+          <p>Tu próxima gran idea merece un universo de posibilidades. Conversemos y descubramos hasta dónde podemos llevarla.</p>
+          <a className="contact-main-link" href="/contacto"><span>Hablemos de tu proyecto</span><i>↗</i></a>
+          <div className="contact-footnote"><span>ESTRATEGIA · DISEÑO · TECNOLOGÍA</span><span>LET’S BUILD WHAT’S NEXT.</span></div>
+        </div>
+      </section>
     </main>
   </SiteFrame>;
 }
