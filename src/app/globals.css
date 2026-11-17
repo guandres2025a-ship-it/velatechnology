@@ -1243,3 +1243,15 @@ a:focus-visible, button:focus-visible {
 @media(prefers-reduced-motion:reduce){
   .work-card,.work-card-arrow{transition:none!important}
 }
+
+
+/* VELA / UNIFIED ENDING — keep contact, selected work and footer on one surface */
+.home-contact--portal {
+  background: #090d19;
+}
+.selected-work {
+  background: #090d19;
+}
+.site-footer--universe {
+  background: #090d19;
+}
