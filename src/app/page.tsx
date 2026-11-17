@@ -1,24 +1,7 @@
 import SiteFrame from "../components/layout/SiteFrame";
 import HeroParticles from "../components/hero/HeroParticles";
+import VelaConstellation from "../components/hero/VelaConstellation";
 
-function VelaMark() {
-  return <span className="vela-mark" aria-hidden="true"><span>V</span><i /></span>;
-}
-
-function StarField() {
-  return <div className="star-field" aria-hidden="true">{Array.from({ length: 36 }, (_, i) => <i key={i} />)}</div>;
-}
-
-function Constellation() {
-  return <div className="constellation-art" role="img" aria-label="Constelación VELA, símbolo de conexión y posibilidades">
-    <div className="constellation-glow" />
-    <div className="constellation-orbit orbit-one" /><div className="constellation-orbit orbit-two" /><div className="constellation-orbit orbit-three" />
-    <svg viewBox="0 0 600 480" aria-hidden="true"><path d="M104 315 190 154 288 216 374 92 493 180 442 338 288 385 190 154" /><path d="M104 315 288 216 442 338M190 154 493 180M288 216 374 92" /></svg>
-    <i className="node node-a" /><i className="node node-b" /><i className="node node-c" /><i className="node node-d" /><i className="node node-e" /><i className="node node-f" />
-    <div className="constellation-center"><VelaMark /><span>VELA</span></div>
-    <span className="constellation-label label-top">IDEAS / 01</span><span className="constellation-label label-side">CONNECTION IS EVERYTHING</span><span className="constellation-label label-bottom">10° 58' N — 74° 47' W</span>
-  </div>;
-}
 
 export default function Home() {
   return <SiteFrame>
@@ -32,7 +15,7 @@ export default function Home() {
           <p>Conectamos estrategia, creatividad y tecnología para transformar ideas en experiencias, productos y soluciones que abren nuevos caminos.</p>
           <div className="hero-actions"><a href="/soluciones" className="button-primary">Explora soluciones <span>↗</span></a><a href="/universo" className="text-link">Conoce el universo VELA <span>↓</span></a></div>
         </div>
-        <div className="hero-art"><Constellation /></div>
+        <div className="hero-art"><VelaConstellation /></div>
         <div className="hero-bottomline"><span>01 — 06</span><span>ESTRATEGIA · DISEÑO · TECNOLOGÍA</span><span>EXPLORE VELA ↓</span></div>
       </section>
       <section className="proof-strip"><span className="proof-intro">UN UNIVERSO DE POSIBILIDADES</span><div><b>ESTRATEGIA</b><i /><b>SOFTWARE</b><i /><b>INTELIGENCIA ARTIFICIAL</b><i /><b>EXPERIENCIAS DIGITALES</b><i /><b>INNOVACIÓN</b></div></section>
