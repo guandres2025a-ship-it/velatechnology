@@ -6,7 +6,7 @@ function VelaMark() {
 }
 
 function StarField() {
-  return <div className="star-field" aria-hidden="true">{Array.from({ length: 24 }, (_, i) => <i key={i} />)}</div>;
+  return <div className="star-field" aria-hidden="true">{Array.from({ length: 36 }, (_, i) => <i key={i} />)}</div>;
 }
 
 function Constellation() {
