@@ -23,7 +23,7 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
         </div>
         <div className="footer-contact-column">
           <span className="footer-label">EL SIGUIENTE PASO</span>
-          <strong>¿Tienes una idea<br />en mente?</strong>
+          <strong>¿Tienes una idea en mente?</strong>
           <a className="footer-contact-link" href="/contacto">Conversemos <span>↗</span></a>
         </div>
       </div>
