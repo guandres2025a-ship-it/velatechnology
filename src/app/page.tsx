@@ -24,9 +24,27 @@ export default function Home() {
         <div className="hero-bottomline"><span>01 — 06</span><span>ESTRATEGIA · DISEÑO · TECNOLOGÍA</span><span>EXPLORE VELA ↓</span></div>
       </section>
       <section className="proof-strip"><span className="proof-intro">UN UNIVERSO DE POSIBILIDADES</span><div><b>ESTRATEGIA</b><i /><b>SOFTWARE</b><i /><b>INTELIGENCIA ARTIFICIAL</b><i /><b>EXPERIENCIAS DIGITALES</b><i /><b>INNOVACIÓN</b></div></section>
-      <section className="home-intro section-wrap">
-        <div className="section-kicker"><span>01</span> / EXPLORA VELA</div>
-        <div className="home-intro-grid"><h2>Un universo.<br /><em>Muchas posibilidades.</em></h2><p>Las grandes ideas no viven aisladas. Se conectan, evolucionan y se convierten en algo extraordinario. Explora lo que somos y lo que podemos construir.</p></div>
+      <section className="home-intro home-intro--violet">
+        <div className="section-wrap home-intro-inner">
+          <div className="section-kicker"><span>01</span> / EXPLORA VELA</div>
+          <div className="home-intro-grid">
+            <div className="home-intro-copy">
+              <h2>Un universo.<br /><em>Muchas posibilidades.</em></h2>
+              <p>Las grandes ideas no viven aisladas. Se conectan, evolucionan y se convierten en algo extraordinario. Explora lo que somos y lo que podemos construir.</p>
+            </div>
+            <div className="intro-orbit-visual" aria-hidden="true">
+              <div className="intro-nebula" />
+              <div className="intro-orbit intro-orbit--one"><i /></div>
+              <div className="intro-orbit intro-orbit--two"><i /></div>
+              <div className="intro-orbit intro-orbit--three"><i /></div>
+              <div className="intro-core"><span>V</span><small>VELA UNIVERSE</small></div>
+              <span className="intro-coordinate intro-coordinate--top">INNOVATION / 01</span>
+              <span className="intro-coordinate intro-coordinate--bottom">BEYOND THE EXPECTED</span>
+              <span className="intro-satellite intro-satellite--one">IDEAS</span>
+              <span className="intro-satellite intro-satellite--two">SYSTEMS</span>
+            </div>
+          </div>
+        </div>
       </section>
       <section className="home-links section-wrap">
         <a href="/universo"><span>01 / UNIVERSO</span><strong>Conoce qué nos mueve</strong><i>↗</i></a>
