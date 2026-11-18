@@ -15,8 +15,13 @@ export default function HeroDepth() {
     let frame = 0;
     const handleMove = (event: PointerEvent) => {
       const rect = element.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-      const y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
+      // Normalize and clamp pointer input so edge positions never create a jump.
+      const rawX = Math.max(-1, Math.min(1, ((event.clientX - rect.left) / rect.width - 0.5) * 2));
+      const rawY = Math.max(-1, Math.min(1, ((event.clientY - rect.top) / rect.height - 0.5) * 2));
+      // Ease the response toward the edges: subtle near center, more depth at the perimeter.
+      const shape = (value: number) => Math.sign(value) * Math.pow(Math.abs(value), 1.25);
+      const x = shape(rawX);
+      const y = shape(rawY);
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(() => {
         element.style.setProperty("--depth-x", x.toFixed(3));
