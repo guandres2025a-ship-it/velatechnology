@@ -1443,3 +1443,105 @@ a:focus-visible, button:focus-visible {
   .hero-depth span, .hero-secondary-cta { transition: none !important; }
   .hero-particles { opacity: .22; }
 }
+
+
+/* VELA / CHROMATIC DEPTH — distinct atmospheric planes, not extra glow */
+.hero-section {
+  background:
+    radial-gradient(ellipse 34% 62% at 78% 42%, rgba(67, 91, 183, .25), transparent 74%),
+    radial-gradient(ellipse 28% 48% at 63% 82%, rgba(116, 64, 161, .19), transparent 76%),
+    radial-gradient(ellipse 26% 44% at 96% 18%, rgba(32, 151, 177, .13), transparent 74%),
+    radial-gradient(ellipse 35% 52% at 5% 14%, rgba(43, 70, 133, .2), transparent 76%),
+    linear-gradient(118deg, #050d1b 0%, #0a1730 38%, #10152f 68%, #071426 100%);
+}
+.hero-section::before {
+  opacity: 1;
+  background:
+    radial-gradient(ellipse 25% 46% at 72% 47%, rgba(123, 93, 211, .18), transparent 72%),
+    radial-gradient(ellipse 20% 35% at 91% 68%, rgba(27, 154, 174, .12), transparent 72%),
+    radial-gradient(ellipse 22% 32% at 42% 8%, rgba(70, 105, 177, .11), transparent 75%),
+    linear-gradient(90deg, rgba(4, 12, 25, .34), transparent 62%);
+}
+.hero-depth-nebula {
+  background:
+    radial-gradient(ellipse 30% 43% at 78% 40%, rgba(134, 101, 225, .24), transparent 72%),
+    radial-gradient(ellipse 31% 43% at 66% 70%, rgba(43, 117, 190, .2), transparent 74%),
+    radial-gradient(ellipse 24% 35% at 94% 20%, rgba(33, 177, 188, .15), transparent 74%),
+    radial-gradient(ellipse 45% 35% at 23% 82%, rgba(103, 63, 153, .16), transparent 76%);
+  filter: blur(38px) saturate(118%);
+  mix-blend-mode: screen;
+}
+.hero-depth-horizon {
+  opacity: .72;
+  background:
+    radial-gradient(ellipse 42% 18% at 74% 58%, rgba(102, 139, 226, .18), transparent 76%),
+    radial-gradient(ellipse 25% 14% at 87% 34%, rgba(60, 199, 205, .13), transparent 75%),
+    radial-gradient(ellipse 30% 18% at 57% 76%, rgba(174, 112, 207, .13), transparent 76%),
+    linear-gradient(105deg, transparent 20%, rgba(139, 150, 224, .045) 49%, transparent 78%);
+}
+.hero-depth-lanes {
+  opacity: .4;
+  background:
+    repeating-radial-gradient(ellipse 62% 48% at 77% 53%, transparent 0 54px, rgba(137, 159, 237, .14) 55px, transparent 56px 92px),
+    linear-gradient(125deg, transparent 28%, rgba(45, 177, 194, .06) 53%, transparent 76%);
+}
+.hero-depth-near {
+  opacity: .5;
+  background:
+    radial-gradient(ellipse 20% 44% at 7% 24%, rgba(133, 105, 205, .17), transparent 72%),
+    radial-gradient(ellipse 18% 36% at 92% 82%, rgba(40, 159, 185, .17), transparent 72%),
+    radial-gradient(ellipse 16% 24% at 48% 4%, rgba(184, 135, 100, .08), transparent 75%);
+}
+.hero-depth-corelight {
+  background:
+    radial-gradient(circle at 48% 48%, rgba(185, 154, 255, .16) 0%, rgba(89, 145, 220, .1) 28%, rgba(39, 184, 194, .055) 46%, transparent 70%);
+  mix-blend-mode: screen;
+}
+.orbit-halo-outer {
+  background:
+    radial-gradient(circle at 48% 46%, rgba(105, 113, 221, .18), rgba(45, 111, 170, .1) 38%, rgba(22, 155, 172, .055) 52%, transparent 72%);
+}
+.orbit-halo-inner {
+  background:
+    radial-gradient(circle at 45% 38%, rgba(203, 166, 255, .17), rgba(105, 122, 210, .09) 42%, transparent 72%);
+}
+.orbit-track-a { border-color: rgba(190, 157, 238, .34); }
+.orbit-track-b { border-color: rgba(93, 174, 209, .25); }
+.orbit-track-c { border-color: rgba(117, 132, 218, .2); }
+.orbit-track-d { border-color: rgba(216, 187, 122, .2); }
+.orbit-node-web .orbit-node-point {
+  background: #79d9e5;
+  box-shadow: 0 0 13px 3px rgba(73, 197, 218, .48);
+}
+.orbit-node-business .orbit-node-point {
+  background: #b7a0f5;
+  box-shadow: 0 0 13px 3px rgba(151, 117, 226, .5);
+}
+.orbit-node-automation .orbit-node-point {
+  background: #78cbbd;
+  box-shadow: 0 0 13px 3px rgba(82, 194, 167, .48);
+}
+.orbit-node-intelligence .orbit-node-point {
+  background: #d1a9ec;
+  box-shadow: 0 0 13px 3px rgba(177, 124, 218, .5);
+}
+.orbit-node-web.is-active { border-color: rgba(105, 211, 226, .68); }
+.orbit-node-business.is-active { border-color: rgba(183, 160, 245, .68); }
+.orbit-node-automation.is-active { border-color: rgba(120, 203, 189, .68); }
+.orbit-node-intelligence.is-active { border-color: rgba(209, 169, 236, .68); }
+@media (max-width: 720px) {
+  .hero-section {
+    background:
+      radial-gradient(ellipse 70% 30% at 80% 56%, rgba(91, 101, 192, .2), transparent 75%),
+      radial-gradient(ellipse 58% 28% at 18% 80%, rgba(115, 65, 157, .16), transparent 76%),
+      radial-gradient(ellipse 42% 22% at 94% 26%, rgba(27, 151, 171, .1), transparent 76%),
+      linear-gradient(180deg, #061326 0%, #0c1730 54%, #09172b 100%);
+  }
+  .hero-depth-nebula { opacity: .68; }
+  .hero-depth-horizon { opacity: .42; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-depth-nebula, .hero-depth-horizon, .hero-depth-lanes, .hero-depth-near, .hero-depth-corelight {
+    mix-blend-mode: normal;
+  }
+}
