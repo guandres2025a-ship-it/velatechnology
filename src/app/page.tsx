@@ -1,5 +1,6 @@
 import SiteFrame from "../components/layout/SiteFrame";
 import HeroParticles from "../components/hero/HeroParticles";
+import HeroDepth from "../components/hero/HeroDepth";
 import VelaConstellation from "../components/hero/VelaConstellation";
 
 
@@ -12,6 +13,7 @@ export default function Home() {
   return <SiteFrame>
     <main className="vela-site">
       <section className="hero-section" id="inicio">
+        <HeroDepth />
         <StarField />
         <HeroParticles />
         <div className="hero-copy">
