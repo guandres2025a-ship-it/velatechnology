@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
   { label: "Inicio", href: "/" },
@@ -13,9 +13,35 @@ const links = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [menuOpen]);
 
   return (
-    <header className="site-header">
+    <header ref={headerRef} className="site-header">
       <a href="/" className="brand" aria-label="VELA Technologies, inicio">
         <span className="vela-mark" aria-hidden="true"><span>V</span><i /></span>
         <span><b>VELA</b><small>TECHNOLOGIES</small></span>
@@ -25,6 +51,7 @@ export default function Navbar() {
       </nav>
       <a className="header-cta" href="/contacto">Hablemos <span>↗</span></a>
       <button
+        ref={toggleRef}
         className="mobile-menu-toggle"
         type="button"
         aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
