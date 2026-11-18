@@ -19,11 +19,11 @@ export default function Home() {
         <div className="hero-copy">
           <div className="eyebrow"><i /> THE DIGITAL UNIVERSE</div>
           <h1>Ideas que conectan.<br /><em>Posibilidades</em><br />sin límites.</h1>
-          <p>Conectamos estrategia, creatividad y tecnología para transformar ideas en experiencias, productos y soluciones que abren nuevos caminos.</p>
-          <div className="hero-actions"><a href="/soluciones" className="button-primary">Explora soluciones <span>↗</span></a><a href="/universo" className="text-link">Conoce el universo VELA <span>↓</span></a></div>
+          <p className="hero-subtitle">Estudio de estrategia, diseño y tecnología para marcas que crean productos digitales e IA.</p>
+          <div className="hero-actions"><a href="/contacto" className="button-primary">Hablemos de tu proyecto <span>↗</span></a><a href="#proyectos-destacados" className="hero-secondary-cta">Ver proyectos <span>↗</span></a></div>
         </div>
         <div className="hero-art"><VelaConstellation /></div>
-        <div className="hero-bottomline"><span>01 — 06</span><span>ESTRATEGIA · DISEÑO · TECNOLOGÍA</span><span>EXPLORE VELA ↓</span></div>
+        <div className="hero-bottomline"><span>VELA / 01</span><span>ESTRATEGIA · DISEÑO · TECNOLOGÍA</span><span>04 DOMINIOS CONECTADOS</span></div>
       </section>
       <section className="proof-strip"><span className="proof-intro">UN UNIVERSO DE POSIBILIDADES</span><div><b>ESTRATEGIA</b><i /><b>SOFTWARE</b><i /><b>INTELIGENCIA ARTIFICIAL</b><i /><b>EXPERIENCIAS DIGITALES</b><i /><b>INNOVACIÓN</b></div></section>
       <section className="home-intro home-intro--violet">
