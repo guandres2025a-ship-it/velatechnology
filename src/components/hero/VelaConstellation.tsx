@@ -15,7 +15,7 @@ export default function VelaConstellation() {
 
   return (
     <div className="vela-orbit-system" aria-label="Sistema orbital interactivo de VELA">
-      <div className="orbit-system-topline"><span>VELA / SYSTEM MAP</span><span>04 CONNECTED DOMAINS</span></div>
+      <div className="orbit-system-topline"><span>VELA / FOUR DOMAINS</span><span>04 CONNECTED DOMAINS</span></div>
       <div className="orbit-stage">
         <div className="orbit-halo orbit-halo-outer" />
         <div className="orbit-halo orbit-halo-inner" />
