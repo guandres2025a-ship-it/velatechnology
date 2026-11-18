@@ -1608,3 +1608,149 @@ a:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .hero-depth-rift, .hero-depth-dust, .hero-depth-foreground { transform: none !important; transition: none !important; }
 }
+
+
+/* VELA / TRUE DEPTH PASS — separate optical planes instead of stacking glow */
+.hero-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 58% 74% at 78% 48%, rgba(48, 68, 142, .16), transparent 76%),
+    linear-gradient(118deg, #030916 0%, #081329 48%, #0a1024 76%, #030916 100%);
+}
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  background:
+    radial-gradient(ellipse 78% 78% at 50% 46%, transparent 38%, rgba(2, 7, 18, .32) 78%, rgba(1, 4, 12, .76) 112%),
+    linear-gradient(180deg, rgba(1, 5, 14, .32) 0%, transparent 22%, transparent 72%, rgba(1, 5, 14, .46) 100%);
+}
+.hero-section::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  top: 65%;
+  height: 1px;
+  opacity: .55;
+  background: linear-gradient(90deg, transparent 3%, rgba(64, 117, 183, .05) 22%, rgba(125, 153, 215, .34) 58%, rgba(48, 185, 190, .18) 78%, transparent 98%);
+  box-shadow: 0 0 24px rgba(78, 117, 195, .16), 0 10px 38px rgba(35, 86, 150, .08);
+}
+.hero-depth { z-index: 0; }
+.hero-depth span { will-change: transform; }
+
+/* FAR PLANE: large-scale nebula, very soft, almost stationary, no additive blend */
+.hero-depth-nebula {
+  inset: -22%;
+  opacity: .62;
+  filter: blur(72px) saturate(108%);
+  mix-blend-mode: normal;
+  background:
+    radial-gradient(ellipse 32% 42% at 78% 37%, rgba(83, 66, 166, .28), transparent 76%),
+    radial-gradient(ellipse 38% 50% at 64% 72%, rgba(28, 82, 147, .25), transparent 78%),
+    radial-gradient(ellipse 28% 36% at 18% 22%, rgba(39, 71, 137, .2), transparent 78%),
+    radial-gradient(ellipse 24% 38% at 91% 78%, rgba(20, 105, 122, .13), transparent 80%);
+  transform: translate3d(calc(var(--depth-x) * -1px), calc(var(--depth-y) * -1px), 0) scale(1.12);
+  transition: transform 2.4s cubic-bezier(.2,.7,.2,1);
+}
+
+/* MID PLANE: readable cloud edges, medium blur and medium parallax */
+.hero-depth-rift {
+  inset: -14% -10%;
+  opacity: .64;
+  filter: blur(23px) saturate(112%);
+  mix-blend-mode: normal;
+  background:
+    radial-gradient(ellipse 22% 42% at 60% 18%, rgba(111, 77, 190, .24), transparent 74%),
+    radial-gradient(ellipse 19% 42% at 84% 72%, rgba(25, 143, 166, .19), transparent 72%),
+    radial-gradient(ellipse 28% 31% at 39% 73%, rgba(126, 62, 133, .17), transparent 76%),
+    radial-gradient(ellipse 17% 24% at 13% 56%, rgba(54, 107, 178, .2), transparent 72%);
+  transform: translate3d(calc(var(--depth-x) * 8px), calc(var(--depth-y) * 6px), 0);
+  transition: transform .95s cubic-bezier(.2,.7,.2,1);
+}
+.hero-depth-horizon {
+  inset: 0;
+  opacity: .8;
+  filter: blur(2px);
+  background:
+    linear-gradient(180deg, transparent 61%, rgba(59, 93, 157, .045) 64%, rgba(87, 126, 190, .16) 65%, rgba(17, 73, 122, .06) 66%, transparent 72%),
+    radial-gradient(ellipse 54% 15% at 73% 65%, rgba(87, 127, 196, .2), transparent 78%),
+    linear-gradient(105deg, transparent 20%, rgba(107, 124, 186, .035) 49%, transparent 78%);
+  transform: translate3d(calc(var(--depth-x) * -5px), calc(var(--depth-y) * -3px), 0);
+  transition: transform 1.2s ease-out;
+}
+.hero-depth-lanes {
+  opacity: .23;
+  filter: blur(1px);
+  background:
+    repeating-radial-gradient(ellipse 62% 48% at 77% 53%, transparent 0 62px, rgba(126, 151, 211, .14) 63px, transparent 64px 108px);
+  transform: translate3d(calc(var(--depth-x) * -4px), calc(var(--depth-y) * -3px), 0) rotate(-8deg);
+  transition: transform 1.35s ease-out;
+}
+.hero-depth-dust {
+  opacity: .25;
+  filter: blur(5px);
+  mix-blend-mode: normal;
+  background:
+    radial-gradient(ellipse 42% 13% at 72% 24%, rgba(171, 150, 231, .1), transparent 78%),
+    radial-gradient(ellipse 38% 11% at 66% 78%, rgba(51, 167, 189, .09), transparent 78%);
+  transform: translate3d(calc(var(--depth-x) * 13px), calc(var(--depth-y) * 9px), 0);
+  transition: transform .72s ease-out;
+}
+
+/* NEAR PLANE: crisp edge framing and restrained warm glints; fastest parallax */
+.hero-depth-foreground {
+  inset: -5%;
+  opacity: .76;
+  filter: blur(.8px);
+  mix-blend-mode: normal;
+  background:
+    radial-gradient(ellipse 18% 42% at -1% 52%, rgba(24, 71, 127, .34), transparent 74%),
+    radial-gradient(ellipse 17% 40% at 101% 47%, rgba(16, 105, 119, .24), transparent 74%),
+    radial-gradient(ellipse 12% 22% at 9% 83%, rgba(184, 143, 91, .09), transparent 78%),
+    radial-gradient(ellipse 10% 18% at 91% 17%, rgba(184, 143, 91, .075), transparent 78%),
+    linear-gradient(90deg, rgba(2, 7, 17, .42), transparent 17%, transparent 83%, rgba(2, 7, 17, .3));
+  transform: translate3d(calc(var(--depth-x) * 24px), calc(var(--depth-y) * 18px), 0);
+  transition: transform .42s cubic-bezier(.2,.7,.2,1);
+}
+.hero-depth-near {
+  opacity: .28;
+  filter: blur(17px);
+  transform: translate3d(calc(var(--depth-x) * 17px), calc(var(--depth-y) * 13px), 0);
+  transition: transform .52s ease-out;
+}
+.hero-depth-corelight {
+  filter: blur(20px) saturate(108%);
+  mix-blend-mode: normal;
+  opacity: .72;
+  transform: translate3d(calc(var(--depth-x) * -8px), calc(-50% + var(--depth-y) * -6px), 0);
+  transition: transform 1.4s ease-out;
+}
+.hero-copy, .hero-art, .hero-bottomline {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 720px) {
+  .hero-section::after { top: 70%; opacity: .34; }
+  .hero-depth-nebula { opacity: .5; filter: blur(54px); transform: none; }
+  .hero-depth-rift { opacity: .46; filter: blur(22px); transform: none; }
+  .hero-depth-horizon { opacity: .52; }
+  .hero-depth-lanes { opacity: .13; }
+  .hero-depth-dust { opacity: .18; transform: none; }
+  .hero-depth-foreground { opacity: .35; filter: blur(1px); transform: none; }
+  .hero-depth-near { opacity: .18; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-depth-nebula, .hero-depth-rift, .hero-depth-horizon, .hero-depth-lanes,
+  .hero-depth-dust, .hero-depth-foreground, .hero-depth-near, .hero-depth-corelight {
+    transform: none !important;
+    transition: none !important;
+  }
+}
