@@ -42,6 +42,9 @@ export default function HeroDepth() {
       <span className="hero-depth-horizon" />
       <span className="hero-depth-lanes" />
       <span className="hero-depth-near" />
+      <span className="hero-depth-rift" />
+      <span className="hero-depth-dust" />
+      <span className="hero-depth-foreground" />
       <span className="hero-depth-corelight" />
     </div>
   );
