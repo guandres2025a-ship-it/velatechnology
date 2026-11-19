@@ -1,0 +1,53 @@
+.universeRoot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 54% 74% at 75% 48%, rgba(47, 63, 132, .19), transparent 74%),
+    linear-gradient(112deg, #061326 0%, #091a30 52%, #071426 100%);
+}
+.universeRoot canvas {
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+.staticAtmosphere {
+  position: absolute;
+  inset: -8%;
+  background:
+    radial-gradient(ellipse 30% 40% at 76% 40%, rgba(85, 65, 157, .23), transparent 78%),
+    radial-gradient(ellipse 35% 24% at 70% 70%, rgba(30, 100, 139, .19), transparent 80%),
+    radial-gradient(ellipse 20% 28% at 18% 22%, rgba(39, 72, 130, .16), transparent 80%);
+  filter: blur(28px);
+}
+.vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 82% 88% at 55% 47%, transparent 35%, rgba(2, 8, 19, .36) 78%, rgba(2, 7, 17, .72) 112%),
+    linear-gradient(90deg, rgba(3, 10, 24, .18), transparent 55%);
+}
+.horizon {
+  position: absolute;
+  left: 8%;
+  right: 3%;
+  top: 66%;
+  height: 1px;
+  opacity: .46;
+  background: linear-gradient(90deg, transparent, rgba(88, 131, 194, .08) 24%, rgba(116, 149, 205, .3) 67%, rgba(51, 159, 177, .13) 86%, transparent);
+  box-shadow: 0 0 28px rgba(74, 119, 188, .14), 0 12px 48px rgba(32, 84, 143, .08);
+}
+@media (max-width: 720px) {
+  .universeRoot { opacity: .76; }
+  .vignette { background: radial-gradient(ellipse 90% 78% at 55% 48%, transparent 24%, rgba(2, 8, 19, .5) 100%); }
+  .horizon { top: 70%; opacity: .25; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .universeRoot canvas { display: none !important; }
+  .staticAtmosphere { filter: blur(34px); }
+}
