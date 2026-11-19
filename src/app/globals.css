@@ -1772,3 +1772,32 @@ a:focus-visible, button:focus-visible {
     padding-bottom: 58px;
   }
 }
+
+
+/* VELA / HERO 80VH CAP — keep the first screen concise */
+@media (min-width: 721px) {
+  .hero-section {
+    height: min(80svh, 760px);
+    min-height: 0;
+    max-height: 80svh;
+    padding-top: clamp(22px, 3vh, 40px);
+    padding-bottom: 52px;
+    overflow: hidden;
+  }
+  .hero-copy {
+    padding-bottom: 0;
+  }
+  .constellation-art {
+    height: clamp(300px, 43svh, 410px);
+  }
+}
+@media (min-width: 721px) and (max-height: 680px) {
+  .hero-section {
+    padding-top: 18px;
+    padding-bottom: 44px;
+  }
+  .constellation-art {
+    height: 290px;
+    transform: scale(.88);
+  }
+}
