@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import styles from "./HeroUniverse.module.css";
 
@@ -111,7 +111,7 @@ const fragmentShader = `
   }
 `;
 
-function PointLayer({ kind, count, drift = 0 }: { kind: FieldKind; count: number; drift?: number }) {
+function PointLayer({ kind, count }: { kind: FieldKind; count: number }) {
   const geometry = useMemo(() => createField(kind, count), [kind, count]);
   const material = useMemo(() => new THREE.ShaderMaterial({
     transparent: true,
@@ -119,7 +119,7 @@ function PointLayer({ kind, count, drift = 0 }: { kind: FieldKind; count: number
     vertexShader,
     fragmentShader,
     uniforms: {
-      uPixelRatio: { value: Math.min(window.devicePixelRatio || 1, 1.5) },
+      uPixelRatio: { value: 1.0 },
       uTime: { value: 0 },
     },
   }), []);
@@ -134,9 +134,7 @@ function PointLayer({ kind, count, drift = 0 }: { kind: FieldKind; count: number
   }, [geometry, material]);
 
   return (
-    <points geometry={geometry} material={material}>
-      <primitive object={new THREE.Group()} visible={false} />
-    </points>
+    <points geometry={geometry} material={material} />
   );
 }
 
@@ -198,7 +196,7 @@ function Nebula() {
 }
 
 function Meteor({ delay = 0 }: { delay?: number }) {
-  const ref = React.useRef<THREE.Mesh>(null);
+  const ref = useRef<THREE.Mesh>(null);
   const material = useMemo(() => new THREE.ShaderMaterial({
     transparent: true,
     depthWrite: false,
