@@ -14,3 +14,15 @@
 @media(max-width:560px){.living-hero{padding:62px 6% 83px}.living-eyebrow{font-size:8px;letter-spacing:.25em}.living-overline{margin-top:29px;font-size:8px}.living-hero-copy h1{font-size:clamp(48px,11.8vw,66px);margin:17px 0 19px;line-height:1.02}.living-hero-description{font-size:12px;line-height:1.85}.living-hero-actions{align-items:flex-start;flex-direction:column;gap:18px;margin-top:26px}.living-primary-cta{min-height:49px}.living-hero-proof{margin-top:29px;font-size:6px;letter-spacing:.11em}.living-constellation{width:112%;max-width:500px;margin-left:-6%;margin-top:0}.living-node-label{font-size:7px}.living-node-label small{font-size:7px}.living-core-rings{width:126px;height:126px}.living-core-mark{width:56px;height:56px;font-size:30px}.living-core-name{font-size:9px}.living-core small{font-size:6px}.living-constellation-caption{bottom:1%;font-size:6px;gap:7px}.living-coordinate{font-size:6px}.living-hero-footer{left:6%;right:6%;bottom:17px;font-size:6px;letter-spacing:.1em}.living-hero-footer span{max-width:54%}.living-hero-footer a{white-space:nowrap}.living-nebula--blue{width:100vw;height:34vw;left:-10%;top:26%;filter:blur(34px)}.living-nebula--violet{width:95vw;height:32vw;left:5%;bottom:2%;filter:blur(34px)}.living-supernova{right:15%;top:49%;width:180px;height:180px}}
 @media(max-width:380px){.living-hero-copy h1{font-size:46px}.living-node-label{font-size:6px}.living-constellation-caption{white-space:normal;text-align:center;justify-content:center;width:90%}.living-hero-footer span{max-width:48%}}
 @media(prefers-reduced-motion:reduce){.living-nebula,.living-supernova,.living-comet,.living-constellation-halo,.living-constellation-ring,.living-core-rings i,.living-line-pulse{animation:none!important;transition:none!important}.living-hero .hero-particles{opacity:.35}}
+
+
+/* Procedural Cosmos experiment: restrained, panoramic background layer */
+.living-cosmos-layer{position:absolute;z-index:1;inset:0;overflow:hidden;pointer-events:none;opacity:.78;mix-blend-mode:screen}
+.living-cosmos-nebula-field{position:absolute;inset:0;overflow:hidden}
+.living-cosmos-nebula{position:absolute;width:min(76vw,1100px);height:min(76vw,1100px);object-fit:contain;mix-blend-mode:screen;filter:blur(12px);opacity:.16}
+.living-cosmos-nebula--blue{left:4%;top:-42%;transform:rotate(-18deg)}
+.living-cosmos-nebula--violet{right:-5%;bottom:-56%;transform:rotate(22deg);opacity:.13}
+.living-cosmos-galaxy{position:absolute;width:min(68vw,960px);height:min(68vw,960px);max-height:115%;right:-5%;top:50%;transform:translateY(-50%);object-fit:contain;opacity:.36;filter:saturate(.78) contrast(1.05)}
+@media(max-width:820px){.living-cosmos-layer{opacity:.6}.living-cosmos-nebula{width:105vw;height:105vw}.living-cosmos-nebula--blue{left:-28%;top:12%}.living-cosmos-nebula--violet{right:-34%;bottom:-15%}.living-cosmos-galaxy{width:108vw;height:108vw;max-height:none;right:-42%;top:67%;opacity:.25}}
+@media(max-width:560px){.living-cosmos-layer{opacity:.48}.living-cosmos-galaxy{right:-52%;top:64%;opacity:.2}.living-cosmos-nebula{filter:blur(18px)}}
+@media(prefers-reduced-motion:reduce){.living-cosmos-galaxy{animation:none}}
