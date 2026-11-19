@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import "./VelaLivingHero.css";
 import UniverseCanvas from "../universe/UniverseCanvas";
 
 const dimensions = [
