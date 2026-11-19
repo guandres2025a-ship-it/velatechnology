@@ -2,6 +2,7 @@
 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useEffect, useMemo, useRef, useState } from "react";
+import type { MutableRefObject } from "react";
 import * as THREE from "three";
 import styles from "./HeroUniverse.module.css";
 
@@ -243,7 +244,7 @@ function Meteor({ delay = 0 }: { delay?: number }) {
 function SupernovaPulse() {
   const ring = useMemo(() => new THREE.Mesh(
     new THREE.RingGeometry(0.92, 1, 96),
-    new THREE.MeshBasicMaterial({ color: "#d8bb7a", transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }),
+    new THREE.MeshBasicMaterial({ color: "#9bb2d8", transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }),
   ), []);
 
   useFrame(({ clock }) => {
@@ -260,7 +261,7 @@ function SupernovaPulse() {
   return <primitive object={ring} position={[5.2, 0.15, -8]} />;
 }
 
-function CameraDrift({ pointer }: { pointer: React.MutableRefObject<{ x: number; y: number }> }) {
+function CameraDrift({ pointer }: { pointer: MutableRefObject<{ x: number; y: number }> }) {
   useFrame(({ camera }) => {
     camera.position.x += (pointer.current.x * 0.24 - camera.position.x) * 0.018;
     camera.position.y += (pointer.current.y * 0.16 - camera.position.y) * 0.018;
