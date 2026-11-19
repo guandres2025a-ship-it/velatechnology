@@ -103,7 +103,7 @@ const fragmentShader = `
   void main() {
     vec2 p = gl_PointCoord - 0.5;
     float d = length(p);
-    float core = smoothstep(0.5, 0.02, d);
+    float core = 1.0 - smoothstep(0.02, 0.5, d);
     float halo = smoothstep(0.5, 0.12, d) * 0.18;
     float alpha = (core + halo) * vAlpha;
     if (alpha < 0.015) discard;
@@ -220,7 +220,7 @@ function Meteor({ delay = 0 }: { delay?: number }) {
 
   useFrame(({ clock }) => {
     if (!ref.current) return;
-    const cycle = (clock.elapsedTime + delay) % 19;
+    const cycle = (clock.elapsedTime - delay + 19) % 19;
     const progress = cycle / 0.85;
     const visible = cycle < 0.85;
     ref.current.visible = visible;
@@ -260,6 +260,14 @@ function SupernovaPulse() {
   return <primitive object={ring} position={[5.2, 0.15, -8]} />;
 }
 
+function CameraDrift({ pointer }: { pointer: React.MutableRefObject<{ x: number; y: number }> }) {
+  useFrame(({ camera }) => {
+    camera.position.x += (pointer.current.x * 0.24 - camera.position.x) * 0.018;
+    camera.position.y += (pointer.current.y * 0.16 - camera.position.y) * 0.018;
+  });
+  return null;
+}
+
 function Scene({ mobile, reducedMotion }: { mobile: boolean; reducedMotion: boolean }) {
   const counts = mobile
     ? { stars: 2600, galaxy: 2800, clusters: 550 }
@@ -280,6 +288,7 @@ export default function HeroUniverse() {
   const [mobile, setMobile] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [visible, setVisible] = useState(true);
+  const pointer = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const mobileQuery = window.matchMedia("(max-width: 720px), (pointer: coarse)");
@@ -292,9 +301,18 @@ export default function HeroUniverse() {
     mobileQuery.addEventListener("change", update);
     motionQuery.addEventListener("change", update);
     const hero = document.getElementById("inicio");
+    const handlePointer = (event: PointerEvent) => {
+      if (!hero || mobileQuery.matches) return;
+      const rect = hero.getBoundingClientRect();
+      const inside = event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom;
+      pointer.current.x = inside ? Math.max(-1, Math.min(1, ((event.clientX - rect.left) / rect.width - 0.5) * 2)) : 0;
+      pointer.current.y = inside ? -Math.max(-1, Math.min(1, ((event.clientY - rect.top) / rect.height - 0.5) * 2)) : 0;
+    };
+    window.addEventListener("pointermove", handlePointer);
     const observer = hero ? new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.02 }) : null;
     if (hero && observer) observer.observe(hero);
     return () => {
+      window.removeEventListener("pointermove", handlePointer);
       mobileQuery.removeEventListener("change", update);
       motionQuery.removeEventListener("change", update);
       observer?.disconnect();
@@ -311,6 +329,7 @@ export default function HeroUniverse() {
         gl={{ alpha: true, antialias: false, powerPreference: "low-power" }}
         fallback={<div className={styles.staticAtmosphere} />}
       >
+        <CameraDrift pointer={pointer} />
         <Scene mobile={mobile} reducedMotion={reducedMotion} />
       </Canvas>
       <div className={styles.vignette} />
