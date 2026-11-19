@@ -17,6 +17,13 @@ export default function VelaConstellation() {
     <div className="vela-orbit-system" aria-label="Sistema orbital interactivo de VELA">
       <div className="orbit-system-topline"><span>VELA / FOUR DOMAINS</span><span>04 CONNECTED DOMAINS</span></div>
       <div className="orbit-stage">
+        <svg className="orbit-connections" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <defs><linearGradient id="vela-connection" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#8ba9d0" stopOpacity=".08" /><stop offset="52%" stopColor="#d8bb7a" stopOpacity=".72" /><stop offset="100%" stopColor="#78a6d2" stopOpacity=".12" /></linearGradient></defs>
+          <path className={active === "web" ? "is-active" : ""} d="M50 50 C40 38 31 28 17 19" />
+          <path className={active === "business" ? "is-active" : ""} d="M50 50 C62 37 72 29 84 25" />
+          <path className={active === "automation" ? "is-active" : ""} d="M50 50 C64 62 73 72 82 79" />
+          <path className={active === "intelligence" ? "is-active" : ""} d="M50 50 C38 64 29 73 17 82" />
+        </svg>
         <div className="orbit-halo orbit-halo-outer" />
         <div className="orbit-halo orbit-halo-inner" />
         <div className="orbit-track orbit-track-a" />
