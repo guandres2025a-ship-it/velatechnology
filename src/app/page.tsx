@@ -3,11 +3,6 @@ import HeroUniverse from "../components/hero/HeroUniverse";
 import VelaConstellation from "../components/hero/VelaConstellation";
 
 
-function StarField() {
-  return <div className="star-field" aria-hidden="true">{Array.from({ length: 36 }, (_, i) => <i key={i} />)}</div>;
-}
-
-
 export default function Home() {
   return <SiteFrame>
     <main className="vela-site">
