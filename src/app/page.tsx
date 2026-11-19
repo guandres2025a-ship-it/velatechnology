@@ -1,6 +1,5 @@
 import SiteFrame from "../components/layout/SiteFrame";
-import HeroParticles from "../components/hero/HeroParticles";
-import HeroDepth from "../components/hero/HeroDepth";
+import HeroUniverse from "../components/hero/HeroUniverse";
 import VelaConstellation from "../components/hero/VelaConstellation";
 
 
@@ -13,9 +12,7 @@ export default function Home() {
   return <SiteFrame>
     <main className="vela-site">
       <section className="hero-section" id="inicio">
-        <HeroDepth />
-        <StarField />
-        <HeroParticles />
+        <HeroUniverse />
         <div className="hero-copy">
           <div className="eyebrow"><i /> THE DIGITAL UNIVERSE</div>
           <h1>Ideas que conectan.<br /><em>Posibilidades</em><br />sin límites.</h1>
