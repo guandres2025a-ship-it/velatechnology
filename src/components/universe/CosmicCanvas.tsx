@@ -8,12 +8,8 @@ const GALAXY = {
   seed: 271828,
   resolution: 768,
   timeSpeed: 0.035,
-  config: {
-    inclinationDeg: 31,
-    colorVariation: 0.12,
-    fbmOctaves: 6,
-  },
-} as const;
+  config: { inclinationDeg: 31, colorVariation: 0.12, fbmOctaves: 6 },
+};
 
 export default function CosmicCanvas() {
   const galaxyRef = useRef<HTMLCanvasElement>(null);
@@ -41,9 +37,7 @@ export default function CosmicCanvas() {
       const draw = (time: number) => {
         if (disposed || !visible || !generator) return;
         generator.render(GALAXY, time / 1000);
-        if (!reducedMotion.matches) {
-          animationId = window.requestAnimationFrame(draw);
-        }
+        if (!reducedMotion.matches) animationId = window.requestAnimationFrame(draw);
       };
 
       draw(0);
@@ -51,11 +45,8 @@ export default function CosmicCanvas() {
       const onVisibility = () => {
         visible = document.visibilityState === "visible";
         window.cancelAnimationFrame(animationId);
-        if (visible && !reducedMotion.matches) {
-          animationId = window.requestAnimationFrame(draw);
-        }
+        if (visible && !reducedMotion.matches) animationId = window.requestAnimationFrame(draw);
       };
-
       const onMotionPreference = () => {
         window.cancelAnimationFrame(animationId);
         if (reducedMotion.matches) draw(0);
@@ -74,10 +65,9 @@ export default function CosmicCanvas() {
         nebulaHost.replaceChildren();
       };
     } catch (error) {
-      console.warn("VELA Cosmos layer could not initialize; CSS atmosphere remains active.", error);
+      console.warn("VELA Cosmos layer could not initialize; the existing atmosphere remains active.", error);
       generator?.dispose();
       canvas.hidden = true;
-      return;
     }
   }, []);
 
