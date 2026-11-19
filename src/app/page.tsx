@@ -1,31 +1,9 @@
 import SiteFrame from "../components/layout/SiteFrame";
-import HeroUniverse from "../components/hero/HeroUniverse";
-import HeroDepth from "../components/hero/HeroDepth";
-import HeroParticles from "../components/hero/HeroParticles";
-import VelaConstellation from "../components/hero/VelaConstellation";
 
-
-function StarField() {
-  return <div className="star-field" aria-hidden="true">{Array.from({ length: 36 }, (_, i) => <i key={i} />)}</div>;
-}
 
 export default function Home() {
   return <SiteFrame>
     <main className="vela-site">
-      <section className="hero-section" id="inicio">
-        <HeroDepth />
-        <HeroUniverse />
-        <StarField />
-        <HeroParticles />
-        <div className="hero-copy">
-          <div className="eyebrow"><i /> THE DIGITAL UNIVERSE</div>
-          <h1>Ideas que conectan.<br /><em>Posibilidades</em><br />sin límites.</h1>
-          <p className="hero-subtitle">Estudio de estrategia, diseño y tecnología para marcas que crean productos digitales e IA.</p>
-          <div className="hero-actions"><a href="/contacto" className="button-primary">Hablemos de tu proyecto <span>↗</span></a><a href="#proyectos-destacados" className="hero-secondary-cta">Ver proyectos <span>↗</span></a></div>
-        </div>
-        <div className="hero-art"><VelaConstellation /></div>
-        <div className="hero-bottomline"><span>VELA / 01</span><span>ESTRATEGIA · DISEÑO · TECNOLOGÍA</span><span>04 DOMINIOS CONECTADOS</span></div>
-      </section>
       <section className="proof-strip"><span className="proof-intro">UN UNIVERSO DE POSIBILIDADES</span><div><b>ESTRATEGIA</b><i /><b>SOFTWARE</b><i /><b>INTELIGENCIA ARTIFICIAL</b><i /><b>EXPERIENCIAS DIGITALES</b><i /><b>INNOVACIÓN</b></div></section>
       <section className="home-intro home-intro--violet">
         <div className="section-wrap home-intro-inner">
