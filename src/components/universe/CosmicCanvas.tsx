@@ -28,11 +28,20 @@ export default function CosmicCanvas() {
 
     try {
       generator = new CelestialGenerator(canvas);
-      const nebulaA = renderNebula(481516, 768);
-      const nebulaB = renderNebula(314159, 768);
-      nebulaA.className = "living-cosmos-nebula living-cosmos-nebula--blue";
-      nebulaB.className = "living-cosmos-nebula living-cosmos-nebula--violet";
-      nebulaHost.replaceChildren(nebulaA, nebulaB);
+
+      const mountNebula = (seed: number, className: string) => {
+        const source = renderNebula(seed, 768);
+        const display = document.createElement("canvas");
+        display.width = source.width;
+        display.height = source.height;
+        display.className = className;
+        const context = display.getContext("2d");
+        if (context) context.drawImage(source, 0, 0, display.width, display.height);
+        nebulaHost.appendChild(display);
+      };
+
+      mountNebula(481516, "living-cosmos-nebula living-cosmos-nebula--blue");
+      mountNebula(314159, "living-cosmos-nebula living-cosmos-nebula--violet");
 
       const draw = (time: number) => {
         if (disposed || !visible || !generator) return;
@@ -68,6 +77,7 @@ export default function CosmicCanvas() {
       console.warn("VELA Cosmos layer could not initialize; the existing atmosphere remains active.", error);
       generator?.dispose();
       canvas.hidden = true;
+      nebulaHost.replaceChildren();
     }
   }, []);
 
