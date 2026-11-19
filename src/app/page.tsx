@@ -1,11 +1,13 @@
 import SiteFrame from "../components/layout/SiteFrame";
+import VelaLivingHero from "../components/hero/VelaLivingHero";
 
 
 export default function Home() {
   return <SiteFrame>
     <main className="vela-site">
+      <VelaLivingHero />
       <section className="proof-strip"><span className="proof-intro">UN UNIVERSO DE POSIBILIDADES</span><div><b>ESTRATEGIA</b><i /><b>SOFTWARE</b><i /><b>INTELIGENCIA ARTIFICIAL</b><i /><b>EXPERIENCIAS DIGITALES</b><i /><b>INNOVACIÓN</b></div></section>
-      <section className="home-intro home-intro--violet">
+      <section className="home-intro home-intro--violet" id="explora-vela">
         <div className="section-wrap home-intro-inner">
           <div className="section-kicker"><span>01</span> / EXPLORA VELA</div>
           <div className="home-intro-grid">
