@@ -3,6 +3,7 @@
 import { useState } from "react";
 import "./VelaLivingHero.css";
 import UniverseCanvas from "../universe/UniverseCanvas";
+import CosmicCanvas from "../universe/CosmicCanvas";
 
 const dimensions = [
   { id: "experience", number: "01", name: "Web Experience", detail: "Experiencias digitales memorables", x: "18%", y: "28%" },
@@ -27,6 +28,7 @@ export default function VelaLivingHero() {
         <div className="living-comet living-comet--one" />
         <div className="living-comet living-comet--two" />
       </div>
+      <CosmicCanvas />
       <UniverseCanvas />
       <div className="living-hero-vignette" aria-hidden="true" />
 
