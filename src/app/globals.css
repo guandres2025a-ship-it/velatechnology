@@ -1754,3 +1754,21 @@ a:focus-visible, button:focus-visible {
     transition: none !important;
   }
 }
+
+
+/* VELA / HERO HEIGHT REFINEMENT — tighter first viewport */
+@media (min-width: 821px) {
+  .hero-section {
+    min-height: min(640px, calc(100svh - 86px));
+    padding-top: clamp(38px, 4.5vh, 58px);
+    padding-bottom: 64px;
+  }
+  .hero-copy { padding-bottom: 12px; }
+}
+@media (min-width: 821px) and (max-height: 760px) {
+  .hero-section {
+    min-height: 560px;
+    padding-top: 34px;
+    padding-bottom: 58px;
+  }
+}
