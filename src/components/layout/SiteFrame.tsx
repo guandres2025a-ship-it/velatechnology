@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "./Navbar";
 
 export default function SiteFrame({ children }: { children: React.ReactNode }) {
@@ -7,10 +8,10 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
     <footer className="site-footer site-footer--universe">
       <div className="footer-main">
         <div className="footer-brand-column">
-          <a href="/" className="brand footer-brand">
+          <Link href="/" className="brand footer-brand">
             <span className="vela-mark" aria-hidden="true"><span>V</span><i /></span>
             <span><b>VELA</b><small>TECHNOLOGIES</small></span>
-          </a>
+          </Link>
           <p>Conectamos ideas, estrategia y tecnología para crear lo que viene.</p>
           <span className="footer-manifesto">IDEAS CONNECTED. POSSIBILITIES UNLIMITED.</span>
         </div>

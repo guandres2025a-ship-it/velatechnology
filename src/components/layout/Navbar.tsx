@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const links = [
@@ -42,10 +43,10 @@ export default function Navbar() {
 
   return (
     <header ref={headerRef} className="site-header">
-      <a href="/" className="brand" aria-label="VELA Technologies, inicio">
+      <Link href="/" className="brand" aria-label="VELA Technologies, inicio">
         <span className="vela-mark" aria-hidden="true"><span>V</span><i /></span>
         <span><b>VELA</b><small>TECHNOLOGIES</small></span>
-      </a>
+      </Link>
       <nav className="desktop-nav" aria-label="Navegación principal">
         {links.map((link) => <a key={link.href} href={link.href}>{link.label}</a>)}
       </nav>

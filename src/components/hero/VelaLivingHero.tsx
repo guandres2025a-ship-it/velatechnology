@@ -34,16 +34,14 @@ export default function VelaLivingHero() {
 
       <div className="living-hero-content">
         <div className="living-hero-copy">
-          <div className="living-eyebrow"><span /> THE DIGITAL UNIVERSE <span /></div>
           <p className="living-overline">ESTRATEGIA · DISEÑO · TECNOLOGÍA</p>
-          <h1 id="living-hero-title">El futuro no se <em>imagina.</em><br />Se construye.</h1>
+          <h1 id="living-hero-title">Construimos<br />lo que <em>viene.</em></h1>
           <p className="living-hero-description">
-            Conectamos ideas, diseño y tecnología para crear experiencias digitales,
-            sistemas inteligentes y nuevas posibilidades para los negocios.
+            Diseñamos experiencias y sistemas inteligentes que transforman ideas en tecnología.
           </p>
           <div className="living-hero-actions">
-            <a className="living-primary-cta" href="/soluciones">EXPLORA SOLUCIONES <span>↗</span></a>
-            <a className="living-secondary-cta" href="/universo">Descubre VELA <span>→</span></a>
+            <a className="living-primary-cta" href="/universo">EXPLORA VELA <span>↗</span></a>
+            <a className="living-secondary-cta" href="/soluciones">Ver soluciones <span>→</span></a>
           </div>
           <div className="living-hero-proof">
             <span className="living-proof-orb" />
@@ -64,14 +62,16 @@ export default function VelaLivingHero() {
                 <stop offset="100%" stopColor="#9a8bd1" stopOpacity=".18" />
               </linearGradient>
             </defs>
-            <path d="M18 28 L50 50 L78 24 M50 50 L83 72 M50 50 L22 76 M18 28 L78 24 M22 76 L83 72" />
-            <path className="living-line-pulse" d="M18 28 L50 50 L78 24 M50 50 L83 72 M50 50 L22 76" />
+            <path d="M8 50 C8 31 27 17 50 17 C73 17 92 31 92 50 C92 69 73 83 50 83 C27 83 8 69 8 50Z" />
+            <path d="M24 13 C43 8 70 26 81 44 C91 61 74 82 56 88 C38 94 18 77 13 57 C8 38 11 17 24 13Z" />
+            <path d="M16 76 C31 55 57 37 85 22" />
+            <path className="living-line-pulse" d="M8 50 C8 31 27 17 50 17 C73 17 92 31 92 50" />
           </svg>
           <div className="living-core">
             <div className="living-core-rings"><i /><i /><i /></div>
-            <span className="living-core-mark">V</span>
+            <span className="living-core-mark" aria-hidden="true" />
             <span className="living-core-name">VELA</span>
-            <small>THE CONNECTING FORCE</small>
+            <small>IDEAS IN ORBIT</small>
           </div>
           {dimensions.map((dimension) => (
             <button
@@ -85,7 +85,14 @@ export default function VelaLivingHero() {
               aria-pressed={active === dimension.id}
               aria-label={`${dimension.name}: ${dimension.detail}`}
             >
-              <span className="living-node-star" />
+              <span className="living-node-star">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  {dimension.id === "experience" && <><rect x="4" y="5" width="16" height="12" rx="1" /><path d="M2 20h20M9 17l-1 3m7-3 1 3" /></>}
+                  {dimension.id === "systems" && <><ellipse cx="12" cy="5" rx="7" ry="3" /><path d="M5 5v14c0 1.7 14 1.7 14 0V5M5 10c0 1.7 14 1.7 14 0m-14 5c0 1.7 14 1.7 14 0" /></>}
+                  {dimension.id === "automation" && <path d="m13 2-9 12h7l-1 8 10-13h-7z" />}
+                  {dimension.id === "intelligence" && <><path d="M12 3a5 5 0 0 0-5 5 4 4 0 0 0-2 7 4 4 0 0 0 7 4V3Zm0 0a5 5 0 0 1 5 5 4 4 0 0 1 2 7 4 4 0 0 1-7 4V3Z" /><path d="M8 10h2m4 0h2m-8 4h2m4 0h2" /></>}
+                </svg>
+              </span>
               <span className="living-node-label"><small>{dimension.number}</small>{dimension.name}</span>
             </button>
           ))}
@@ -93,7 +100,7 @@ export default function VelaLivingHero() {
             <span>{selected.number} / 04</span>
             <strong>{selected.detail}</strong>
           </div>
-          <span className="living-coordinate living-coordinate--top">19° 26' 08.4&quot; N</span>
+          <span className="living-coordinate living-coordinate--top">19° 26&apos; 08.4&quot; N</span>
           <span className="living-coordinate living-coordinate--bottom">A SYSTEM OF POSSIBILITIES</span>
         </div>
       </div>
