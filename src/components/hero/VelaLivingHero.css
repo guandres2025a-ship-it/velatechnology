@@ -88,3 +88,202 @@
   .living-hero-footer{font-size:6px}
   .living-cosmos-nebula{filter:blur(18px) saturate(1.3)}
 }
+
+/* =========================================================
+   VELA — CRYSTAL ENERGY SYSTEM
+   Premium glass nodes, luminous connections and central core.
+   Appended as a focused visual layer; existing layout/positions
+   and the Cosmos background remain unchanged.
+   ========================================================= */
+
+.living-node{
+  --node-rgb:112,190,255;
+  position:absolute;
+  isolation:isolate;
+  gap:11px;
+  padding:10px 14px;
+  border:1px solid rgba(var(--node-rgb),.38);
+  border-radius:16px;
+  background:
+    linear-gradient(125deg,rgba(var(--node-rgb),.13),rgba(7,15,31,.76) 58%,rgba(17,24,48,.62));
+  -webkit-backdrop-filter:blur(12px) saturate(145%);
+  backdrop-filter:blur(12px) saturate(145%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.2),
+    inset 0 -1px 0 rgba(var(--node-rgb),.12),
+    0 0 16px rgba(var(--node-rgb),.13),
+    0 0 34px rgba(var(--node-rgb),.09);
+  transition:color .35s ease,border-color .35s ease,background .35s ease,box-shadow .35s ease,transform .35s ease;
+}
+.living-node::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-10px;
+  border-radius:inherit;
+  background:radial-gradient(ellipse at center,rgba(var(--node-rgb),.38),transparent 70%);
+  filter:blur(15px);
+  opacity:.36;
+  transform:scale(.92);
+  animation:vela-node-aura 5.4s ease-in-out infinite;
+  pointer-events:none;
+}
+.living-node::after{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius:inherit;
+  background:linear-gradient(115deg,rgba(255,255,255,.13),transparent 38%,transparent 72%,rgba(var(--node-rgb),.09));
+  opacity:.8;
+  pointer-events:none;
+}
+.living-node--experience{--node-rgb:91,203,255}
+.living-node--systems{--node-rgb:164,139,255}
+.living-node--automation{--node-rgb:63,232,219}
+.living-node--intelligence{--node-rgb:224,190,119}
+
+.living-node-star{
+  position:relative;
+  z-index:1;
+  flex:0 0 48px;
+  width:48px;
+  height:48px;
+  border:1px solid rgba(var(--node-rgb),.72);
+  background:
+    radial-gradient(circle at 35% 28%,rgba(255,255,255,.24),rgba(var(--node-rgb),.2) 28%,rgba(7,14,31,.86) 74%);
+  color:rgba(232,244,255,.98);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.25),
+    inset 0 0 15px rgba(var(--node-rgb),.2),
+    0 0 12px rgba(var(--node-rgb),.32),
+    0 0 27px rgba(var(--node-rgb),.2);
+  animation:vela-node-crystal 4.8s ease-in-out infinite;
+  transition:background .35s ease,border-color .35s ease,box-shadow .35s ease,color .35s ease;
+}
+.living-node-star svg{
+  filter:
+    drop-shadow(0 0 4px rgba(255,255,255,.5))
+    drop-shadow(0 0 9px rgba(var(--node-rgb),.7));
+}
+.living-node-label{
+  position:relative;
+  z-index:1;
+  color:#f1f5fc;
+  font-weight:500;
+  letter-spacing:.015em;
+  text-shadow:0 1px 10px rgba(2,5,14,.95),0 0 13px rgba(var(--node-rgb),.24);
+}
+.living-node:hover,
+.living-node:focus-visible,
+.living-node.is-active{
+  color:#fff4dc;
+  border-color:rgba(var(--node-rgb),.82);
+  background:linear-gradient(125deg,rgba(var(--node-rgb),.2),rgba(8,16,34,.84) 58%,rgba(20,27,51,.72));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.27),
+    0 0 20px rgba(var(--node-rgb),.25),
+    0 0 42px rgba(var(--node-rgb),.17);
+}
+.living-node.is-active .living-node-star,
+.living-node:hover .living-node-star,
+.living-node:focus-visible .living-node-star{
+  border-color:rgba(255,255,255,.86);
+  background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.34),rgba(var(--node-rgb),.3) 35%,rgba(7,14,31,.82) 76%);
+  box-shadow:
+    inset 0 0 18px rgba(var(--node-rgb),.3),
+    0 0 18px rgba(var(--node-rgb),.52),
+    0 0 38px rgba(var(--node-rgb),.3);
+}
+.living-node.is-active .living-node-label{color:#fff8e9}
+
+.living-constellation-lines path{
+  stroke:url(#living-line);
+  stroke-width:.52;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  opacity:.9;
+  filter:
+    drop-shadow(0 0 3px rgba(112,190,255,.65))
+    drop-shadow(0 0 8px rgba(137,128,255,.34));
+}
+.living-constellation-lines .living-line-pulse{
+  stroke:#eaf5ff;
+  stroke-width:.7;
+  stroke-dasharray:1 10;
+  stroke-linecap:round;
+  opacity:.95;
+  filter:
+    drop-shadow(0 0 4px rgba(128,207,255,.95))
+    drop-shadow(0 0 10px rgba(154,139,255,.55));
+  animation:vela-energy-travel 8s linear infinite;
+}
+
+.living-core{
+  filter:drop-shadow(0 0 20px rgba(255,197,119,.24));
+}
+.living-core-rings{
+  filter:drop-shadow(0 0 8px rgba(118,190,255,.3));
+}
+.living-core-rings i{
+  border-color:rgba(235,202,145,.48);
+  box-shadow:0 0 12px rgba(230,190,122,.16),inset 0 0 10px rgba(116,185,255,.12);
+}
+.living-core-rings i:nth-child(2){
+  border-color:rgba(139,194,255,.52);
+}
+.living-core-mark{
+  position:relative;
+  background:radial-gradient(circle,#fff 0%,#fff0c9 16%,rgba(255,199,119,.76) 34%,rgba(113,146,255,.24) 58%,transparent 76%);
+  box-shadow:
+    0 0 12px 5px rgba(255,224,171,.58),
+    0 0 34px 16px rgba(255,184,104,.34),
+    0 0 78px 34px rgba(119,104,255,.22),
+    0 0 120px 48px rgba(69,157,255,.12);
+  animation:vela-core-radiance 5.2s ease-in-out infinite;
+}
+.living-core-mark::after{
+  content:"";
+  position:absolute;
+  inset:-13px;
+  border:1px solid rgba(255,226,178,.42);
+  border-radius:50%;
+  box-shadow:0 0 16px rgba(255,199,119,.32);
+  opacity:.8;
+}
+.living-core-name{
+  color:#fff0cf;
+  text-shadow:0 0 7px rgba(255,235,194,.8),0 0 22px rgba(236,188,119,.58);
+}
+
+@keyframes vela-node-aura{
+  0%,100%{opacity:.27;transform:scale(.92)}
+  50%{opacity:.62;transform:scale(1.08)}
+}
+@keyframes vela-node-crystal{
+  0%,100%{filter:brightness(.94);transform:scale(.97)}
+  50%{filter:brightness(1.16);transform:scale(1.035)}
+}
+@keyframes vela-energy-travel{
+  to{stroke-dashoffset:-110}
+}
+@keyframes vela-core-radiance{
+  0%,100%{filter:brightness(.94);transform:scale(.96)}
+  50%{filter:brightness(1.18);transform:scale(1.06)}
+}
+
+/* Compact glass treatment on smaller screens */
+@media(max-width:560px){
+  .living-node{padding:7px 9px;gap:8px;border-radius:13px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .living-node-star{flex-basis:40px;width:40px;height:40px}
+  .living-node-star svg{width:18px;height:18px}
+  .living-node-label{font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .living-node::before,
+  .living-node-star,
+  .living-core-mark,
+  .living-constellation-lines .living-line-pulse{
+    animation:none!important;
+  }
+}
+
