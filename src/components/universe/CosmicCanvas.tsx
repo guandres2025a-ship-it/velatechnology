@@ -91,11 +91,24 @@ export default function CosmicCanvas() {
         await generator.precompile([CelestialType.Galaxy]);
         if (disposed) return;
 
-        // renderNebula already returns an HTMLCanvasElement; append it directly
-        // instead of allocating and copying into a second canvas.
+        // The library types this result as HTMLCanvasElement | OffscreenCanvas.
+        // Reuse an HTML canvas directly; bridge OffscreenCanvas only when needed.
         for (const nebula of NEBULAE) {
-          const element = renderNebula(nebula.seed, 768);
+          const rendered = renderNebula(nebula.seed, 768);
           if (disposed) return;
+
+          let element: HTMLCanvasElement;
+          if (rendered instanceof HTMLCanvasElement) {
+            element = rendered;
+          } else {
+            element = document.createElement("canvas");
+            element.width = rendered.width;
+            element.height = rendered.height;
+            const context = element.getContext("2d");
+            if (!context) throw new Error("Could not create a 2D context for the nebula.");
+            context.drawImage(rendered, 0, 0);
+          }
+
           element.className = nebula.className;
           nebulaHost.appendChild(element);
         }
