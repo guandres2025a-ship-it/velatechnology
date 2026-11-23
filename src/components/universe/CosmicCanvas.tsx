@@ -30,6 +30,7 @@ export default function CosmicCanvas() {
     let generator: CelestialGenerator | null = null;
     let generatorDisposed = false;
     let animationId: number | null = null;
+    const nebulaTimers: number[] = [];
     let disposed = false;
 
     const disposeGenerator = () => {
@@ -101,7 +102,7 @@ export default function CosmicCanvas() {
         // Add the decorative nebula canvases after the galaxy is already visible.
         // A short gap between them avoids one long main-thread task on slower devices.
         NEBULAE.forEach((nebula, index) => {
-          window.setTimeout(() => {
+          const timer = window.setTimeout(() => {
             if (disposed) return;
 
             try {
@@ -127,6 +128,7 @@ export default function CosmicCanvas() {
               console.warn("VELA decorative nebula could not be rendered.", error);
             }
           }, 250 + index * 350);
+          nebulaTimers.push(timer);
         });
       } catch (error) {
         console.warn(
@@ -145,6 +147,7 @@ export default function CosmicCanvas() {
     return () => {
       disposed = true;
       cancelFrame();
+      nebulaTimers.forEach((timer) => window.clearTimeout(timer));
       document.removeEventListener("visibilitychange", onVisibilityChange);
       motionPreference.removeEventListener("change", onMotionPreferenceChange);
       disposeGenerator();
