@@ -331,3 +331,135 @@
   .living-cosmos-galaxy,
   .living-cosmos-nebula{transition:none!important}
 }
+
+
+/* =========================================================
+   VELA — LIVING UNIVERSE MOTION PASS
+   Ambient motion, layered depth and gentle editorial entrance.
+   CSS-only: no extra canvas, JS loop, or layout shift.
+   ========================================================= */
+.living-hero-atmosphere::before,
+.living-hero-atmosphere::after{
+  content:"";
+  position:absolute;
+  inset:-18%;
+  pointer-events:none;
+  will-change:transform,opacity;
+}
+.living-hero-atmosphere::before{
+  opacity:.5;
+  background:
+    radial-gradient(ellipse at 23% 34%,rgba(54,137,214,.17),transparent 31%),
+    radial-gradient(ellipse at 78% 64%,rgba(126,83,205,.17),transparent 34%),
+    radial-gradient(ellipse at 53% 18%,rgba(73,183,210,.09),transparent 27%);
+  filter:blur(34px);
+  animation:vela-atmosphere-breathe 22s ease-in-out infinite alternate;
+}
+.living-hero-atmosphere::after{
+  opacity:.25;
+  background:
+    radial-gradient(circle at 72% 28%,rgba(218,196,151,.22) 0 1px,transparent 2px),
+    radial-gradient(circle at 39% 66%,rgba(148,190,238,.25) 0 1px,transparent 2px),
+    radial-gradient(circle at 88% 78%,rgba(148,190,238,.2) 0 1px,transparent 2px),
+    radial-gradient(circle at 16% 22%,rgba(218,196,151,.2) 0 1px,transparent 2px);
+  background-size:310px 270px,390px 330px,460px 380px,520px 440px;
+  animation:vela-starfield-drift 70s linear infinite;
+}
+.living-cosmos-galaxy{
+  animation:vela-galaxy-float 34s ease-in-out infinite alternate;
+  transform-origin:72% 50%;
+}
+.living-cosmos-nebula--blue{
+  animation:vela-nebula-blue 38s ease-in-out infinite alternate;
+}
+.living-cosmos-nebula--violet{
+  animation:vela-nebula-violet 46s ease-in-out infinite alternate;
+}
+.living-constellation{
+  translate:0 0;
+  animation:vela-constellation-hover 11s ease-in-out infinite;
+}
+.living-constellation-halo{
+  animation:living-halo 8s ease-in-out infinite,vela-halo-color 14s ease-in-out infinite;
+}
+.living-constellation-ring--c{
+  animation:vela-ring-breathe 13s ease-in-out infinite alternate;
+}
+.living-node--experience{animation:vela-node-float 7.2s ease-in-out infinite}
+.living-node--systems{animation:vela-node-float 8.4s ease-in-out -2.1s infinite}
+.living-node--automation{animation:vela-node-float 7.8s ease-in-out -4.2s infinite}
+.living-node--intelligence{animation:vela-node-float 9s ease-in-out -1.2s infinite}
+.living-hero-copy > *{
+  animation:vela-copy-arrive .85s cubic-bezier(.2,.7,.2,1) both;
+}
+.living-hero-copy > :nth-child(1){animation-delay:.08s}
+.living-hero-copy > :nth-child(2){animation-delay:.18s}
+.living-hero-copy > :nth-child(3){animation-delay:.3s}
+.living-hero-copy > :nth-child(4){animation-delay:.42s}
+.living-hero-copy > :nth-child(5){animation-delay:.54s}
+.living-hero-copy > :nth-child(6){animation-delay:.66s}
+.living-hero-footer{
+  animation:vela-copy-arrive .9s .72s both;
+}
+@keyframes vela-atmosphere-breathe{
+  0%{transform:translate3d(-2%,1%,0) scale(.96) rotate(-2deg);opacity:.34}
+  50%{opacity:.62}
+  100%{transform:translate3d(2%,-1%,0) scale(1.07) rotate(2deg);opacity:.48}
+}
+@keyframes vela-starfield-drift{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-38px,24px,0)}
+}
+@keyframes vela-galaxy-float{
+  0%{translate:0 0;scale:1;filter:saturate(1.08) contrast(1.1) brightness(1.02)}
+  100%{translate:-1.2% 1.1%;scale:1.035;filter:saturate(1.22) contrast(1.12) brightness(1.12)}
+}
+@keyframes vela-nebula-blue{
+  0%{translate:-1.2% -.6%;scale:.98;rotate:-1deg}
+  100%{translate:1.5% 1.2%;scale:1.045;rotate:1.5deg}
+}
+@keyframes vela-nebula-violet{
+  0%{translate:1% 1%;scale:1.02;rotate:1deg}
+  100%{translate:-1.5% -1.1%;scale:.97;rotate:-1.5deg}
+}
+@keyframes vela-constellation-hover{
+  0%,100%{translate:0 0}
+  50%{translate:0 -5px}
+}
+@keyframes vela-halo-color{
+  0%,100%{filter:blur(22px) hue-rotate(0deg)}
+  50%{filter:blur(26px) hue-rotate(24deg)}
+}
+@keyframes vela-ring-breathe{
+  from{opacity:.35;scale:.98}
+  to{opacity:.8;scale:1.035}
+}
+@keyframes vela-node-float{
+  0%,100%{translate:0 0}
+  50%{translate:0 -4px}
+}
+@keyframes vela-copy-arrive{
+  from{opacity:0;translate:0 13px;filter:blur(4px)}
+  to{opacity:1;translate:0 0;filter:blur(0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .living-hero-atmosphere::before,
+  .living-hero-atmosphere::after,
+  .living-cosmos-galaxy,
+  .living-cosmos-nebula--blue,
+  .living-cosmos-nebula--violet,
+  .living-constellation,
+  .living-constellation-halo,
+  .living-constellation-ring--c,
+  .living-node,
+  .living-hero-copy > *,
+  .living-hero-footer{
+    animation:none!important;
+    translate:none!important;
+    filter:none!important;
+  }
+}
+@media(max-width:820px){
+  .living-hero-atmosphere::before{opacity:.36}
+  .living-cosmos-galaxy{animation-duration:48s}
+}
