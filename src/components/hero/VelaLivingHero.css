@@ -287,3 +287,47 @@
   }
 }
 
+
+
+/* =========================================================
+   COSMOS — progressive enhancement / no-layout-shift loading
+   The dark branded atmosphere is visible before WebGL is ready.
+   Heavy pixels fade in only after precompile + first frame.
+   ========================================================= */
+.living-cosmos-layer,
+.living-cosmos-loading{
+  background:
+    radial-gradient(ellipse at 76% 48%,rgba(22,76,145,.24),transparent 48%),
+    radial-gradient(ellipse at 35% 72%,rgba(81,48,145,.2),transparent 46%),
+    radial-gradient(ellipse at 55% 38%,rgba(13,36,75,.42),transparent 58%),
+    #02050e;
+}
+.living-cosmos-layer{
+  transition:opacity 800ms ease;
+}
+.living-cosmos-galaxy,
+.living-cosmos-nebula{
+  opacity:0;
+  transition:opacity 1100ms ease;
+}
+.living-cosmos-layer.is-ready .living-cosmos-galaxy{
+  opacity:.48;
+}
+.living-cosmos-layer.is-ready .living-cosmos-nebula{
+  opacity:.5;
+}
+.living-cosmos-loading{
+  z-index:1;
+  pointer-events:none;
+}
+@media(max-width:820px){
+  .living-cosmos-layer.is-ready .living-cosmos-galaxy{opacity:.27}
+}
+@media(max-width:560px){
+  .living-cosmos-layer.is-ready .living-cosmos-galaxy{opacity:.23}
+}
+@media(prefers-reduced-motion:reduce){
+  .living-cosmos-layer,
+  .living-cosmos-galaxy,
+  .living-cosmos-nebula{transition:none!important}
+}
