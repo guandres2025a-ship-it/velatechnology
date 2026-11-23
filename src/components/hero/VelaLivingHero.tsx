@@ -1,9 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import "./VelaLivingHero.css";
 import UniverseCanvas from "../universe/UniverseCanvas";
-import CosmicCanvas from "../universe/CosmicCanvas";
+const CosmicCanvas = dynamic(() => import("../universe/CosmicCanvas"), {
+  ssr: false,
+  loading: () => (
+    <div className="living-cosmos-layer living-cosmos-loading" aria-hidden="true" />
+  ),
+});
 
 const dimensions = [
   { id: "experience", number: "01", name: "Web Experience", detail: "Experiencias digitales memorables", x: "18%", y: "28%" },
