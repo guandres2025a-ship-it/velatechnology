@@ -463,3 +463,201 @@
   .living-hero-atmosphere::before{opacity:.36}
   .living-cosmos-galaxy{animation-duration:48s}
 }
+
+
+/* =========================================================
+   VELA — CELESTIAL NODES / REFINED COSMIC HIERARCHY
+   Replace interface-like glass cards with floating star points.
+   ========================================================= */
+.living-node{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important;
+  box-shadow:none!important;
+  padding:8px 10px!important;
+  gap:13px!important;
+  color:#dce8f7;
+  transition:color .4s ease,transform .4s ease!important;
+}
+.living-node::after{
+  display:none!important;
+}
+.living-node::before{
+  z-index:0;
+  inset:-18px!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle,rgba(var(--node-rgb),.2) 0%,rgba(var(--node-rgb),.075) 34%,transparent 72%)!important;
+  filter:blur(13px)!important;
+  opacity:.48!important;
+  transform:scale(.78)!important;
+  animation:vela-star-halo 6.5s ease-in-out infinite!important;
+}
+.living-node-star{
+  position:relative;
+  z-index:1;
+  display:grid;
+  flex:0 0 48px;
+  width:48px;
+  height:48px;
+  place-items:center;
+  border:1px solid rgba(var(--node-rgb),.32)!important;
+  border-radius:50%!important;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(var(--node-rgb),.18),rgba(8,17,34,.12) 58%,transparent 76%)!important;
+  color:rgba(231,242,255,.96);
+  box-shadow:
+    0 0 10px rgba(var(--node-rgb),.14),
+    0 0 25px rgba(var(--node-rgb),.12),
+    inset 0 0 13px rgba(var(--node-rgb),.1)!important;
+  animation:vela-node-crystal 6.8s ease-in-out infinite!important;
+}
+.living-node-star svg{
+  width:21px;
+  height:21px;
+  filter:
+    drop-shadow(0 0 4px rgba(255,255,255,.42))
+    drop-shadow(0 0 9px rgba(var(--node-rgb),.6));
+}
+.living-node-label{
+  z-index:1;
+  color:rgba(224,235,248,.82)!important;
+  font-size:10px!important;
+  font-weight:400!important;
+  letter-spacing:.075em!important;
+  text-shadow:0 2px 12px rgba(1,6,17,.95)!important;
+  transition:color .35s ease,text-shadow .35s ease!important;
+}
+.living-node:hover,
+.living-node:focus-visible,
+.living-node.is-active{
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:#fff2d4!important;
+  transform:translate(-50%,-50%) scale(1.045)!important;
+}
+.living-node:hover::before,
+.living-node:focus-visible::before,
+.living-node.is-active::before{
+  opacity:.82!important;
+  transform:scale(1.08)!important;
+}
+.living-node:hover .living-node-star,
+.living-node:focus-visible .living-node-star,
+.living-node.is-active .living-node-star{
+  border-color:rgba(255,226,174,.68)!important;
+  background:radial-gradient(circle,rgba(255,226,174,.24),rgba(var(--node-rgb),.1) 48%,transparent 76%)!important;
+  box-shadow:
+    0 0 13px rgba(255,218,159,.22),
+    0 0 30px rgba(var(--node-rgb),.24),
+    inset 0 0 16px rgba(var(--node-rgb),.16)!important;
+}
+.living-node.is-active .living-node-label,
+.living-node:hover .living-node-label{
+  color:#fff1d2!important;
+  text-shadow:0 0 15px rgba(230,198,144,.3),0 2px 12px rgba(1,6,17,.95)!important;
+}
+.living-node:focus-visible .living-node-star{
+  outline:1px solid rgba(255,231,190,.7);
+  outline-offset:6px;
+}
+
+/* The constellation should read as one connected celestial system. */
+.living-constellation-lines{
+  overflow:visible;
+}
+.living-constellation-lines path{
+  stroke-width:.62!important;
+  opacity:.9!important;
+  filter:
+    drop-shadow(0 0 2px rgba(224,196,143,.55))
+    drop-shadow(0 0 6px rgba(91,190,236,.4))!important;
+}
+.living-constellation-lines .living-line-pulse{
+  stroke:#f4dfb3!important;
+  stroke-width:.78!important;
+  stroke-dasharray:1.2 9!important;
+  opacity:1!important;
+  filter:
+    drop-shadow(0 0 4px rgba(255,224,169,.95))
+    drop-shadow(0 0 9px rgba(91,190,236,.62))!important;
+  animation:vela-energy-travel 10s linear infinite!important;
+}
+
+/* The galaxy is a distant environment, never a foreground sticker. */
+.living-cosmos-layer.is-ready .living-cosmos-galaxy{
+  opacity:.36!important;
+  filter:blur(2px) saturate(.72) brightness(.78) contrast(.94)!important;
+}
+.living-cosmos-layer.is-ready .living-cosmos-nebula{
+  opacity:.34!important;
+  filter:blur(25px) saturate(.78) brightness(.82)!important;
+}
+.living-cosmos-nebula--blue{mix-blend-mode:screen;opacity:.34}
+.living-cosmos-nebula--violet{mix-blend-mode:screen;opacity:.28}
+
+/* Golden core: highest local luminance, with quieter but legible orbits. */
+.living-constellation-ring--a{
+  border-color:rgba(231,196,133,.48)!important;
+  box-shadow:0 0 13px rgba(224,185,116,.12),inset 0 0 10px rgba(224,185,116,.06);
+}
+.living-constellation-ring--b{
+  border-color:rgba(123,180,229,.34)!important;
+  box-shadow:0 0 15px rgba(105,168,226,.1);
+}
+.living-constellation-ring--c{
+  border-color:rgba(191,164,224,.3)!important;
+  box-shadow:0 0 13px rgba(171,140,221,.1);
+}
+.living-core{
+  filter:
+    drop-shadow(0 0 18px rgba(255,211,143,.4))
+    drop-shadow(0 0 42px rgba(238,177,94,.2))!important;
+}
+.living-core-mark{
+  width:30px!important;
+  height:30px!important;
+  background:radial-gradient(circle,#fff 0%,#fff4d8 19%,#ffd38b 37%,rgba(255,188,105,.5) 56%,transparent 78%)!important;
+  box-shadow:
+    0 0 12px 6px rgba(255,236,194,.72),
+    0 0 32px 17px rgba(255,194,111,.48),
+    0 0 76px 38px rgba(255,163,83,.23),
+    0 0 120px 55px rgba(115,129,255,.13)!important;
+}
+.living-core-mark::after{
+  inset:-17px!important;
+  border-color:rgba(255,226,178,.52)!important;
+  box-shadow:0 0 22px rgba(255,199,119,.38)!important;
+}
+.living-core-rings{
+  width:178px!important;
+  height:178px!important;
+  filter:
+    drop-shadow(0 0 8px rgba(255,205,139,.28))
+    drop-shadow(0 0 17px rgba(112,178,235,.18))!important;
+}
+.living-core-rings i{
+  border-color:rgba(242,211,158,.56)!important;
+  box-shadow:0 0 15px rgba(237,194,125,.2),inset 0 0 12px rgba(116,185,255,.12)!important;
+}
+.living-core-rings i:nth-child(2){
+  border-color:rgba(151,201,244,.5)!important;
+}
+@keyframes vela-star-halo{
+  0%,100%{opacity:.32;transform:scale(.82)}
+  50%{opacity:.72;transform:scale(1.12)}
+}
+@media(max-width:560px){
+  .living-node{gap:8px!important;padding:6px 7px!important}
+  .living-node-star{flex-basis:40px;width:40px;height:40px}
+  .living-node-star svg{width:18px;height:18px}
+  .living-node-label{font-size:8px!important}
+  .living-core-rings{width:142px!important;height:142px!important}
+  .living-core-mark{width:25px!important;height:25px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .living-node::before{animation:none!important}
+  .living-node-star{animation:none!important}
+}
