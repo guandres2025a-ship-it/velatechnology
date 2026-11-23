@@ -28,8 +28,17 @@ export default function CosmicCanvas() {
 
     const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
     let generator: CelestialGenerator | null = null;
+    let generatorDisposed = false;
     let animationId: number | null = null;
     let disposed = false;
+
+    const disposeGenerator = () => {
+      if (generator && !generatorDisposed) {
+        generator.dispose();
+        generatorDisposed = true;
+        generator = null;
+      }
+    };
     let visible = document.visibilityState === "visible";
 
     const cancelFrame = () => {
@@ -104,8 +113,7 @@ export default function CosmicCanvas() {
           error,
         );
         cancelFrame();
-        generator?.dispose();
-        generator = null;
+        disposeGenerator();
         nebulaHost.replaceChildren();
         if (!disposed) setReady(true);
       }
@@ -118,8 +126,7 @@ export default function CosmicCanvas() {
       cancelFrame();
       document.removeEventListener("visibilitychange", onVisibilityChange);
       motionPreference.removeEventListener("change", onMotionPreferenceChange);
-      generator?.dispose();
-      generator = null;
+      disposeGenerator();
       nebulaHost.replaceChildren();
     };
   }, []);
