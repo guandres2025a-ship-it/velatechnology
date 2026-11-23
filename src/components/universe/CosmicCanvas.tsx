@@ -91,35 +91,43 @@ export default function CosmicCanvas() {
         await generator.precompile([CelestialType.Galaxy]);
         if (disposed) return;
 
-        // The library types this result as HTMLCanvasElement | OffscreenCanvas.
-        // Reuse an HTML canvas directly; bridge OffscreenCanvas only when needed.
-        for (const nebula of NEBULAE) {
-          const rendered = renderNebula(nebula.seed, 768);
-          if (disposed) return;
-
-          let element: HTMLCanvasElement;
-          if (rendered instanceof HTMLCanvasElement) {
-            element = rendered;
-          } else {
-            element = document.createElement("canvas");
-            element.width = rendered.width;
-            element.height = rendered.height;
-            const context = element.getContext("2d");
-            if (!context) throw new Error("Could not create a 2D context for the nebula.");
-            context.drawImage(rendered, 0, 0);
-          }
-
-          element.className = nebula.className;
-          nebulaHost.appendChild(element);
-        }
-
-        if (disposed) return;
-
-        // Draw one static frame immediately so the transition never reveals a blank canvas.
+        // Paint the main galaxy first. Nebula generation is intentionally deferred:
+        // renderNebula() is synchronous and must never hold the hero's primary visual hostage.
         generator.render(GALAXY, 0);
         setReady(true);
 
         if (visible && !motionPreference.matches) start();
+
+        // Add the decorative nebula canvases after the galaxy is already visible.
+        // A short gap between them avoids one long main-thread task on slower devices.
+        NEBULAE.forEach((nebula, index) => {
+          window.setTimeout(() => {
+            if (disposed) return;
+
+            try {
+              const rendered = renderNebula(nebula.seed, 512);
+              if (disposed) return;
+
+              let element: HTMLCanvasElement;
+              if (rendered instanceof HTMLCanvasElement) {
+                element = rendered;
+              } else {
+                element = document.createElement("canvas");
+                element.width = rendered.width;
+                element.height = rendered.height;
+                const context = element.getContext("2d");
+                if (!context) throw new Error("Could not create a 2D context for the nebula.");
+                context.drawImage(rendered, 0, 0);
+              }
+
+              element.className = nebula.className;
+              nebulaHost.appendChild(element);
+              nebulaHost.classList.add("is-ready");
+            } catch (error) {
+              console.warn("VELA decorative nebula could not be rendered.", error);
+            }
+          }, 250 + index * 350);
+        });
       } catch (error) {
         console.warn(
           "VELA Cosmos could not initialize; the CSS atmosphere remains as fallback.",
