@@ -703,3 +703,68 @@
   .living-constellation{width:min(100%,330px)!important}
   .living-hero-footer{bottom:13px!important}
 }
+
+
+/* VELA — layered stellar dust: real depth, restrained motion, no extra canvas. */
+.living-particle-field{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  overflow:hidden;
+  pointer-events:none;
+  contain:paint;
+  opacity:.78;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 16%,#000 88%,transparent 100%);
+}
+.living-particle{
+  position:absolute;
+  display:block;
+  width:2px;
+  height:2px;
+  border-radius:50%;
+  background:rgba(193,220,247,.9);
+  box-shadow:0 0 5px 1px rgba(118,183,235,.46),0 0 13px rgba(118,183,235,.2);
+  opacity:.2;
+  animation:vela-particle-drift 22s ease-in-out infinite alternate;
+  will-change:transform,opacity;
+}
+.living-particle--1{
+  width:3px;height:3px;
+  background:rgba(231,211,169,.95);
+  box-shadow:0 0 7px 2px rgba(225,193,133,.46),0 0 17px rgba(225,193,133,.2);
+  animation-name:vela-particle-depth;
+}
+.living-particle--2{
+  width:1px;height:1px;
+  opacity:.35;
+  box-shadow:0 0 4px 1px rgba(154,198,237,.5);
+  animation-name:vela-particle-twinkle;
+}
+.living-particle--3{
+  width:2px;height:2px;
+  background:rgba(154,221,230,.9);
+  box-shadow:0 0 6px 1px rgba(92,205,226,.4),0 0 15px rgba(92,205,226,.16);
+  animation-name:vela-particle-depth;
+}
+@keyframes vela-particle-drift{
+  0%{transform:translate3d(-7px,10px,0) scale(.72);opacity:.12}
+  50%{opacity:.55}
+  100%{transform:translate3d(12px,-16px,0) scale(1.18);opacity:.28}
+}
+@keyframes vela-particle-depth{
+  0%{transform:translate3d(8px,14px,0) scale(.6);opacity:.1}
+  45%{opacity:.72}
+  100%{transform:translate3d(-16px,-22px,0) scale(1.35);opacity:.24}
+}
+@keyframes vela-particle-twinkle{
+  0%,100%{transform:scale(.65);opacity:.12}
+  45%{transform:scale(1.45);opacity:.65}
+  70%{transform:scale(.9);opacity:.3}
+}
+@media(max-width:820px){
+  .living-particle-field{opacity:.56}
+  .living-particle:nth-child(3n){display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .living-particle{animation:none!important;will-change:auto}
+}
