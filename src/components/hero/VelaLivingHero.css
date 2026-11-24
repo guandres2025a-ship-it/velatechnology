@@ -768,3 +768,45 @@
 @media(prefers-reduced-motion:reduce){
   .living-particle{animation:none!important;will-change:auto}
 }
+
+
+/* VELA — near-black deep-space foundation */
+.living-hero{
+  background:#010208!important;
+}
+.living-hero-atmosphere{
+  background:
+    radial-gradient(ellipse at 76% 48%,rgba(24,57,105,.17),transparent 47%),
+    radial-gradient(ellipse at 19% 79%,rgba(57,31,99,.12),transparent 43%),
+    radial-gradient(ellipse at 52% 38%,rgba(11,24,48,.18),transparent 59%),
+    linear-gradient(115deg,#010208 0%,#030711 53%,#01030a 100%)!important;
+}
+.living-hero-vignette{
+  background:
+    linear-gradient(90deg,rgba(1,2,8,.58),rgba(1,2,8,.27) 42%,rgba(1,2,8,.04) 78%),
+    linear-gradient(0deg,#010208,transparent 16%,transparent 84%,rgba(1,2,8,.42))!important;
+}
+.living-cosmos-layer,
+.living-cosmos-loading{
+  background:
+    radial-gradient(ellipse at 76% 48%,rgba(20,62,119,.17),transparent 49%),
+    radial-gradient(ellipse at 34% 73%,rgba(67,35,119,.13),transparent 46%),
+    radial-gradient(ellipse at 55% 38%,rgba(10,25,52,.2),transparent 58%),
+    #010208!important;
+}
+.living-cosmos-layer.is-ready .living-cosmos-galaxy{
+  opacity:.34!important;
+  filter:blur(2px) saturate(.68) brightness(.72) contrast(.94)!important;
+}
+.living-cosmos-layer.is-ready .living-cosmos-nebula{
+  opacity:.31!important;
+  filter:blur(27px) saturate(.72) brightness(.76)!important;
+}
+.living-particle-field{opacity:.88}
+@media(max-width:820px){
+  .living-cosmos-layer.is-ready .living-cosmos-galaxy{opacity:.25!important}
+  .living-particle-field{opacity:.64}
+}
+@media(max-width:560px){
+  .living-cosmos-layer.is-ready .living-cosmos-galaxy{opacity:.21!important}
+}
