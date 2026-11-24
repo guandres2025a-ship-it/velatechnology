@@ -35,7 +35,7 @@ export default function CosmicCanvas() {
 
     const snapshotGalaxy = (galaxy: (typeof GALAXIES)[number]) => {
       if (!generator || disposed) return;
-      const rendered = generator.render({
+      rendererCanvas.width = galaxy.resolution;\n      rendererCanvas.height = galaxy.resolution;\n      generator.render({
         type: CelestialType.Galaxy,
         seed: galaxy.seed,
         resolution: galaxy.resolution,
@@ -54,7 +54,7 @@ export default function CosmicCanvas() {
       snapshot.height = galaxy.resolution;
       const context = snapshot.getContext("2d");
       if (!context) return;
-      context.drawImage(rendered, 0, 0, galaxy.resolution, galaxy.resolution);
+      context.drawImage(rendererCanvas, 0, 0, galaxy.resolution, galaxy.resolution);
       snapshot.className = galaxy.className;
       snapshot.setAttribute("aria-hidden", "true");
       galaxyHost.appendChild(snapshot);
