@@ -36,6 +36,20 @@ export default function VelaLivingHero() {
       </div>
       <CosmicCanvas />
       <UniverseCanvas />
+      <div className="living-particle-field" aria-hidden="true">
+        {Array.from({ length: 34 }, (_, index) => (
+          <span
+            key={index}
+            className={`living-particle living-particle--${index % 4}`}
+            style={{
+              left: `${(index * 37 + 11) % 100}%`,
+              top: `${(index * 61 + 7) % 100}%`,
+              animationDelay: `-${(index % 13) * 0.9}s`,
+              animationDuration: `${16 + (index % 9) * 3}s`,
+            }}
+          />
+        ))}
+      </div>
       <div className="living-hero-vignette" aria-hidden="true" />
 
       <div className="living-hero-content">
