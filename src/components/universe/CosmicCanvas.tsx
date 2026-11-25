@@ -65,8 +65,17 @@ export default function CosmicCanvas() {
     const renderNebula = (nebula: (typeof NEBULAE)[number]) => {
       if (disposed) return;
       try {
-        const element = renderNebulaCanvas(nebula.seed, 512);
+        const rendered = renderNebulaCanvas(nebula.seed, 512);
+        // The library may return an OffscreenCanvas, which cannot be appended
+        // to the DOM. Copy either canvas type into a regular HTML canvas.
+        const element = document.createElement("canvas");
+        element.width = 512;
+        element.height = 512;
+        const context = element.getContext("2d");
+        if (!context) return;
+        context.drawImage(rendered, 0, 0, 512, 512);
         element.className = nebula.className;
+        element.setAttribute("aria-hidden", "true");
         nebulaHost.appendChild(element);
         nebulaHost.classList.add("is-ready");
       } catch (error) {
