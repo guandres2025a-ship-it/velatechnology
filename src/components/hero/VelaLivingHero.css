@@ -1101,3 +1101,131 @@
 @media(max-width:560px){
   .living-node-label{font-size:9px!important}
 }
+
+
+/* VELA — constellation sailboat: the new central brand mark */
+.living-core{
+  width:190px!important;
+  min-height:190px;
+  gap:4px!important;
+  isolation:isolate;
+  filter:
+    drop-shadow(0 0 18px rgba(255,211,143,.32))
+    drop-shadow(0 0 42px rgba(238,177,94,.18))!important;
+}
+.living-core-rings{
+  width:178px!important;
+  height:178px!important;
+  z-index:-1;
+  pointer-events:none;
+}
+.living-sailboat-halo{
+  position:absolute;
+  z-index:-2;
+  width:174px;
+  height:174px;
+  top:43%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(255,226,177,.2) 0%,
+    rgba(216,187,122,.12) 24%,
+    rgba(111,151,195,.07) 48%,
+    transparent 73%);
+  filter:blur(13px);
+  animation:sailboat-halo-breathe 6s ease-in-out infinite;
+}
+.living-sailboat{
+  position:relative;
+  z-index:1;
+  display:block;
+  width:150px!important;
+  height:150px!important;
+  overflow:visible;
+  background:transparent!important;
+  filter:
+    drop-shadow(0 0 4px rgba(255,226,178,.4))
+    drop-shadow(0 0 13px rgba(216,187,122,.2));
+}
+.living-sailboat-lines{
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.living-sailboat .sailboat-line{
+  fill:none;
+  stroke:url(#sailboat-gold);
+  stroke-width:1.15;
+  stroke-dasharray:180;
+  stroke-dashoffset:180;
+  animation:sailboat-draw 5.8s ease-in-out infinite;
+}
+.living-sailboat .sailboat-mast{animation-delay:0s}
+.living-sailboat .sailboat-sail-main{animation-delay:.35s}
+.living-sailboat .sailboat-sail-fore{animation-delay:.7s}
+.living-sailboat .sailboat-deck{animation-delay:1.05s}
+.living-sailboat .sailboat-hull{animation-delay:1.4s}
+.living-sailboat .sailboat-keel{animation-delay:1.75s}
+.living-sailboat .sailboat-rigging{
+  stroke:url(#sailboat-white);
+  stroke-width:.8;
+  animation-delay:2s;
+}
+.living-sailboat .sailboat-nodes circle{
+  stroke:none;
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:sailboat-node-pulse 2.8s ease-in-out infinite;
+}
+.living-sailboat .sailboat-node-gold{
+  fill:#f3d89e;
+  filter:drop-shadow(0 0 3px rgba(255,218,151,.95)) drop-shadow(0 0 8px rgba(216,187,122,.75));
+}
+.living-sailboat .sailboat-node-white{
+  fill:#f5fbff;
+  filter:drop-shadow(0 0 3px rgba(235,248,255,.95)) drop-shadow(0 0 8px rgba(151,199,235,.72));
+}
+.living-sailboat .sailboat-node:nth-child(2n){animation-delay:.45s}
+.living-sailboat .sailboat-node:nth-child(3n){animation-delay:.9s}
+.living-core-name{
+  position:relative;
+  z-index:2;
+  margin-top:-4px!important;
+  color:#fff0d1!important;
+  font-size:11px!important;
+  font-weight:500;
+  letter-spacing:.52em!important;
+  padding-left:.52em!important;
+  text-shadow:0 0 12px rgba(216,187,122,.35);
+}
+@keyframes sailboat-draw{
+  0%{stroke-dashoffset:180;opacity:.5}
+  48%,78%{stroke-dashoffset:0;opacity:1}
+  100%{stroke-dashoffset:-180;opacity:.72}
+}
+@keyframes sailboat-node-pulse{
+  0%,100%{opacity:.62;transform:scale(.78)}
+  50%{opacity:1;transform:scale(1.5)}
+}
+@keyframes sailboat-halo-breathe{
+  0%,100%{opacity:.62;transform:translate(-50%,-50%) scale(.94)}
+  50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}
+}
+@media(max-width:560px){
+  .living-core{width:160px!important;min-height:160px}
+  .living-sailboat{width:128px!important;height:128px!important}
+  .living-sailboat-halo{width:148px;height:148px}
+  .living-core-rings{width:142px!important;height:142px!important}
+  .living-core-name{font-size:9px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .living-sailboat .sailboat-line{
+    animation:none!important;
+    stroke-dashoffset:0!important;
+  }
+  .living-sailboat .sailboat-nodes circle,
+  .living-sailboat-halo{
+    animation:none!important;
+  }
+}
