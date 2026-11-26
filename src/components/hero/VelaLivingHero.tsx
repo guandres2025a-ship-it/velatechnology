@@ -85,11 +85,50 @@ export default function VelaLivingHero() {
             <path d="M16 76 C31 55 57 37 85 22" />
             <path className="living-line-pulse" d="M8 50 C8 31 27 17 50 17 C73 17 92 31 92 50" />
           </svg>
-          <div className="living-core">
-            <div className="living-core-rings"><i /><i /><i /></div>
-            <span className="living-core-mark" aria-hidden="true" />
+          <div className="living-core" aria-label="VELA: un velero de constelaciones">
+            <div className="living-core-rings" aria-hidden="true"><i /><i /><i /></div>
+            <div className="living-sailboat-halo" aria-hidden="true" />
+            <svg
+              className="living-sailboat"
+              viewBox="0 0 150 150"
+              role="img"
+              aria-labelledby="living-sailboat-title living-sailboat-desc"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title id="living-sailboat-title">Velero VELA</title>
+              <desc id="living-sailboat-desc">Velero minimalista formado por líneas doradas y blancas y nodos luminosos.</desc>
+              <defs>
+                <linearGradient id="sailboat-gold" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#fff2d0" />
+                  <stop offset="48%" stopColor="#d8bb7a" />
+                  <stop offset="100%" stopColor="#a98549" />
+                </linearGradient>
+                <linearGradient id="sailboat-white" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#ffffff" />
+                  <stop offset="100%" stopColor="#a9c7df" />
+                </linearGradient>
+              </defs>
+              <g className="sailboat-lines">
+                <path className="sailboat-line sailboat-mast" d="M75 15 L75 105" />
+                <path className="sailboat-line sailboat-sail sailboat-sail-main" d="M71 25 L35 88 L71 88 Z" />
+                <path className="sailboat-line sailboat-sail sailboat-sail-fore" d="M79 38 L116 88 L79 88 Z" />
+                <path className="sailboat-line sailboat-deck" d="M27 99 L123 99" />
+                <path className="sailboat-line sailboat-hull" d="M27 101 Q75 119 123 101 Q111 126 75 129 Q39 126 27 101 Z" />
+                <path className="sailboat-line sailboat-keel" d="M75 105 L75 129" />
+                <path className="sailboat-line sailboat-rigging" d="M75 15 L35 88 M75 15 L116 88" />
+              </g>
+              <g className="sailboat-nodes">
+                <circle className="sailboat-node sailboat-node-gold" cx="75" cy="15" r="2.5" />
+                <circle className="sailboat-node sailboat-node-white" cx="75" cy="25" r="2" />
+                <circle className="sailboat-node sailboat-node-gold" cx="35" cy="88" r="2.4" />
+                <circle className="sailboat-node sailboat-node-white" cx="116" cy="88" r="2.4" />
+                <circle className="sailboat-node sailboat-node-gold" cx="75" cy="88" r="2.2" />
+                <circle className="sailboat-node sailboat-node-white" cx="27" cy="101" r="2" />
+                <circle className="sailboat-node sailboat-node-gold" cx="123" cy="101" r="2" />
+                <circle className="sailboat-node sailboat-node-white" cx="75" cy="129" r="2.2" />
+              </g>
+            </svg>
             <span className="living-core-name">VELA</span>
-            <small>IDEAS IN ORBIT</small>
           </div>
           {dimensions.map((dimension) => (
             <button
