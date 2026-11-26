@@ -99,33 +99,43 @@ export default function VelaLivingHero() {
               <desc id="living-sailboat-desc">Velero minimalista formado por líneas doradas y blancas y nodos luminosos.</desc>
               <defs>
                 <linearGradient id="sailboat-gold" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#fff2d0" />
+                  <stop offset="0%" stopColor="#fff0d0" />
                   <stop offset="48%" stopColor="#d8bb7a" />
-                  <stop offset="100%" stopColor="#a98549" />
+                  <stop offset="100%" stopColor="#9c79a8" />
                 </linearGradient>
                 <linearGradient id="sailboat-white" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#ffffff" />
-                  <stop offset="100%" stopColor="#a9c7df" />
+                  <stop offset="0%" stopColor="#fff" />
+                  <stop offset="55%" stopColor="#e7d6e8" />
+                  <stop offset="100%" stopColor="#9b78a8" />
+                </linearGradient>
+                <linearGradient id="sailboat-sail-fill" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#d8bb7a" stopOpacity=".02" />
+                  <stop offset="58%" stopColor="#c6a0ce" stopOpacity=".17" />
+                  <stop offset="100%" stopColor="#e8c4a0" stopOpacity=".035" />
                 </linearGradient>
               </defs>
               <g className="sailboat-lines">
-                <path className="sailboat-line sailboat-mast" d="M75 15 L75 105" />
-                <path className="sailboat-line sailboat-sail sailboat-sail-main" d="M71 25 L35 88 L71 88 Z" />
-                <path className="sailboat-line sailboat-sail sailboat-sail-fore" d="M79 38 L116 88 L79 88 Z" />
-                <path className="sailboat-line sailboat-deck" d="M27 99 L123 99" />
-                <path className="sailboat-line sailboat-hull" d="M27 101 Q75 119 123 101 Q111 126 75 129 Q39 126 27 101 Z" />
-                <path className="sailboat-line sailboat-keel" d="M75 105 L75 129" />
-                <path className="sailboat-line sailboat-rigging" d="M75 15 L35 88 M75 15 L116 88" />
+                <path className="sailboat-line sailboat-sail-fill" d="M73 13 C83 40 91 72 111 105 Q91 111 62 112 C70 79 72 43 73 13Z" />
+                <path className="sailboat-line sailboat-mast" d="M73 13 L62 112" />
+                <path className="sailboat-line sailboat-sail sailboat-sail-main" d="M73 13 C87 43 98 76 111 105" />
+                <path className="sailboat-line sailboat-sail sailboat-sail-fore" d="M73 13 C68 48 66 83 62 112" />
+                <path className="sailboat-line sailboat-sail-edge" d="M73 13 Q99 56 111 105" />
+                <path className="sailboat-line sailboat-rigging" d="M73 13 L18 4 M73 13 L91 4 M73 13 L62 112 M73 13 L111 105" />
+                <path className="sailboat-line sailboat-deck" d="M28 111 L121 111" />
+                <path className="sailboat-line sailboat-hull" d="M28 111 Q73 119 121 111" />
+                <path className="sailboat-line sailboat-water" d="M7 121 Q42 117 73 121 T143 121 M0 130 Q42 125 78 130 T150 130 M18 139 Q65 134 112 139" />
+                <path className="sailboat-line sailboat-reflection" d="M62 113 L55 126 M73 114 L73 133 M83 114 L91 128 M111 113 L128 121" />
               </g>
               <g className="sailboat-nodes">
-                <circle className="sailboat-node sailboat-node-gold" cx="75" cy="15" r="2.5" />
-                <circle className="sailboat-node sailboat-node-white" cx="75" cy="25" r="2" />
-                <circle className="sailboat-node sailboat-node-gold" cx="35" cy="88" r="2.4" />
-                <circle className="sailboat-node sailboat-node-white" cx="116" cy="88" r="2.4" />
-                <circle className="sailboat-node sailboat-node-gold" cx="75" cy="88" r="2.2" />
-                <circle className="sailboat-node sailboat-node-white" cx="27" cy="101" r="2" />
-                <circle className="sailboat-node sailboat-node-gold" cx="123" cy="101" r="2" />
-                <circle className="sailboat-node sailboat-node-white" cx="75" cy="129" r="2.2" />
+                <circle className="sailboat-node sailboat-node-gold" cx="73" cy="13" r="2.8" />
+                <circle className="sailboat-node sailboat-node-white" cx="18" cy="4" r="1.4" />
+                <circle className="sailboat-node sailboat-node-white" cx="91" cy="4" r="1.5" />
+                <circle className="sailboat-node sailboat-node-gold" cx="62" cy="112" r="2.4" />
+                <circle className="sailboat-node sailboat-node-white" cx="111" cy="105" r="2.1" />
+                <circle className="sailboat-node sailboat-node-gold" cx="28" cy="111" r="1.8" />
+                <circle className="sailboat-node sailboat-node-white" cx="121" cy="111" r="1.8" />
+                <circle className="sailboat-node sailboat-node-white" cx="7" cy="121" r="1.4" />
+                <circle className="sailboat-node sailboat-node-gold" cx="143" cy="121" r="1.5" />
               </g>
             </svg>
             <span className="living-core-name">VELA</span>
