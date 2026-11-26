@@ -1882,3 +1882,95 @@ a:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .orbit-connections path { animation: none !important; }
 }
+
+
+/* VELA / EXPLORE — seamless cosmic continuation and constellation polish */
+.home-intro--violet{
+  border-block-color:rgba(151,177,218,.10);
+  background:
+    radial-gradient(ellipse 42% 82% at 76% 48%,rgba(32,62,112,.20),transparent 72%),
+    radial-gradient(ellipse 34% 68% at 18% 12%,rgba(81,58,133,.10),transparent 74%),
+    radial-gradient(ellipse 80% 95% at 50% 50%,rgba(11,22,43,.34),transparent 78%),
+    linear-gradient(180deg,#03060d 0%,#050914 48%,#03060c 100%);
+}
+.home-intro--violet::before{
+  opacity:.12;
+  background-image:
+    radial-gradient(rgba(220,231,255,.75) .65px,transparent .8px),
+    radial-gradient(rgba(164,185,229,.55) .55px,transparent .8px);
+  background-size:83px 83px,137px 137px;
+  background-position:8px 14px,43px 59px;
+  mask-image:linear-gradient(180deg,transparent 0%,black 16%,black 82%,transparent 100%);
+}
+.home-intro--violet .home-intro-copy h2{color:#fff}
+.home-intro--violet .home-intro-copy h2 em{color:#fff;background:none;-webkit-text-fill-color:#fff}
+.home-intro--violet .home-intro-copy h2 em span{
+  color:transparent;
+  background:linear-gradient(105deg,#b9a4f5 0%,#9a82d8 42%,#d8bb7a 100%);
+  -webkit-background-clip:text;background-clip:text;
+}
+.intro-orbit{
+  filter:drop-shadow(0 0 5px rgba(149,174,226,.20)) drop-shadow(0 0 13px rgba(157,126,216,.12));
+}
+.intro-orbit--one{animation:intro-orbit-spin-one 92s linear infinite}
+.intro-orbit--two{animation:intro-orbit-spin-two 118s linear infinite}
+.intro-orbit--three{animation:intro-orbit-spin-three 146s linear infinite}
+.intro-core{
+  background:
+    radial-gradient(circle at 48% 30%,rgba(198,177,255,.32),rgba(89,75,151,.30) 34%,rgba(10,17,34,.96) 76%),
+    #080d1b;
+  box-shadow:
+    0 0 0 9px rgba(177,157,238,.035),
+    0 0 32px rgba(119,104,190,.22),
+    0 0 76px rgba(85,119,178,.18),
+    inset 0 0 28px rgba(208,192,255,.22),
+    inset 0 -12px 28px rgba(216,187,122,.07);
+}
+.intro-core span{text-shadow:0 0 18px rgba(214,204,255,.88),0 0 42px rgba(154,132,221,.58)}
+.intro-satellite{
+  padding:0;
+  border:0;
+  background:transparent;
+  color:#e1d8f7;
+  font-size:8px;
+  letter-spacing:.22em;
+  backdrop-filter:none;
+  text-shadow:0 0 14px rgba(175,158,224,.34);
+}
+.intro-satellite::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:clamp(68px,9vw,132px);
+  height:1px;
+  opacity:.72;
+  background:linear-gradient(90deg,rgba(216,187,122,.02),rgba(177,161,222,.68));
+  box-shadow:0 0 7px rgba(161,146,215,.24);
+}
+.intro-satellite::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:4px;height:4px;
+  border-radius:50%;
+  background:#e7d8a9;
+  box-shadow:0 0 8px 2px rgba(216,187,122,.48);
+}
+.intro-satellite--one::before{left:calc(100% + 12px);transform:rotate(12deg);transform-origin:left center}
+.intro-satellite--one::after{left:calc(100% + clamp(80px,10vw,144px))}
+.intro-satellite--two::before{right:calc(100% + 12px);transform:rotate(168deg);transform-origin:right center}
+.intro-satellite--two::after{right:calc(100% + clamp(80px,10vw,144px))}
+@keyframes intro-orbit-spin-one{from{transform:rotate(-28deg)}to{transform:rotate(332deg)}}
+@keyframes intro-orbit-spin-two{from{transform:rotate(42deg)}to{transform:rotate(402deg)}}
+@keyframes intro-orbit-spin-three{from{transform:rotate(-57deg)}to{transform:rotate(-417deg)}}
+@media(max-width:560px){
+  .intro-satellite{font-size:6px;letter-spacing:.16em}
+  .intro-satellite--one{left:1%}
+  .intro-satellite--two{right:0}
+  .intro-satellite::before{width:58px}
+  .intro-satellite--one::after{left:calc(100% + 68px)}
+  .intro-satellite--two::after{right:calc(100% + 68px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .intro-orbit--one,.intro-orbit--two,.intro-orbit--three,.intro-nebula{animation:none!important}
+}
