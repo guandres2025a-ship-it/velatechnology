@@ -12,7 +12,7 @@ export default function Home() {
           <div className="section-kicker"><span>01</span> / EXPLORA VELA</div>
           <div className="home-intro-grid">
             <div className="home-intro-copy">
-              <h2>Un universo.<br /><em>Muchas posibilidades.</em></h2>
+              <h2>Un universo.<br /><em>Muchas <span>posibilidades.</span></em></h2>
               <p>Las grandes ideas no viven aisladas. Se conectan, evolucionan y se convierten en algo extraordinario. Explora lo que somos y lo que podemos construir.</p>
             </div>
             <div className="intro-orbit-visual" aria-hidden="true">
