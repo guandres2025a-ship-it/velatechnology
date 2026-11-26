@@ -28,8 +28,6 @@ export default function VelaLivingHero() {
         <div className="living-nebula living-nebula--blue" />
         <div className="living-nebula living-nebula--violet" />
         <div className="living-nebula living-nebula--cyan" />
-        <div className="living-galaxy living-galaxy--far" />
-        <div className="living-galaxy living-galaxy--near" />
         <div className="living-supernova" />
         <div className="living-comet living-comet--one" />
         <div className="living-comet living-comet--two" />
