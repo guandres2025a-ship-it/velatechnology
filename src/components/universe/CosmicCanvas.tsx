@@ -4,12 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { CelestialGenerator, CelestialType, renderNebula as renderNebulaCanvas } from "@eluvade/cosmos";
 
 const GALAXIES = [
-  { seed: 271828, resolution: 384, className: "living-cosmos-galaxy living-cosmos-galaxy--a", inclinationDeg: 31 },
-  { seed: 118033, resolution: 320, className: "living-cosmos-galaxy living-cosmos-galaxy--b", inclinationDeg: 67 },
-  { seed: 141421, resolution: 256, className: "living-cosmos-galaxy living-cosmos-galaxy--c", inclinationDeg: 14 },
-  { seed: 161803, resolution: 320, className: "living-cosmos-galaxy living-cosmos-galaxy--d", inclinationDeg: 52 },
-  { seed: 173205, resolution: 224, className: "living-cosmos-galaxy living-cosmos-galaxy--e", inclinationDeg: 38 },
-  { seed: 223607, resolution: 192, className: "living-cosmos-galaxy living-cosmos-galaxy--f", inclinationDeg: 72 },
+  // One distant galaxy, positioned behind the right-hand orbital system.
+  { seed: 161803, resolution: 384, className: "living-cosmos-galaxy living-cosmos-galaxy--d", inclinationDeg: 52 },
 ] as const;
 
 const NEBULAE = [
@@ -90,15 +86,9 @@ export default function CosmicCanvas() {
         await generator.precompile([CelestialType.Galaxy]);
         if (disposed) return;
 
-        // Populate the field progressively: the first galaxy appears quickly,
-        // then the remaining independent galaxies arrive in short intervals.
+        // Render one distant galaxy behind the orbital system.
         snapshotGalaxy(GALAXIES[0]);
         setReady(true);
-
-        GALAXIES.slice(1).forEach((galaxy, index) => {
-          const timer = window.setTimeout(() => snapshotGalaxy(galaxy), 280 + index * 260);
-          timers.push(timer);
-        });
 
         NEBULAE.forEach((nebula, index) => {
           const timer = window.setTimeout(() => renderNebula(nebula), 520 + index * 420);
