@@ -1974,3 +1974,89 @@ a:focus-visible, button:focus-visible {
 @media(prefers-reduced-motion:reduce){
   .intro-orbit--one,.intro-orbit--two,.intro-orbit--three,.intro-nebula{animation:none!important}
 }
+
+
+/* VELA / PORTAL CONSTELLATION — reveal, hover and ambient motion */
+.home-portals{position:relative;isolation:isolate;overflow:hidden}
+.home-portals::before,.home-portals::after{
+  content:"";position:absolute;z-index:0;inset:0;pointer-events:none;
+  background-image:
+    radial-gradient(1px 1px at 8% 22%,rgba(226,220,255,.7) 50%,transparent 100%),
+    radial-gradient(1px 1px at 26% 74%,rgba(216,187,122,.65) 50%,transparent 100%),
+    radial-gradient(1px 1px at 47% 16%,rgba(220,230,255,.65) 50%,transparent 100%),
+    radial-gradient(1px 1px at 69% 62%,rgba(199,184,255,.7) 50%,transparent 100%),
+    radial-gradient(1px 1px at 91% 31%,rgba(216,187,122,.55) 50%,transparent 100%);
+  background-size:100% 100%;
+  opacity:.3;
+  animation:portal-stars-twinkle 7s ease-in-out infinite alternate;
+}
+.home-portals::after{
+  opacity:.16;
+  transform:translate3d(0,0,0);
+  background-position:31px 19px,90px 42px,12px 77px,63px 11px,120px 58px;
+  animation-duration:10s;
+  animation-delay:-3s;
+}
+.home-portals>.section-wrap{position:relative;z-index:1}
+.portal-grid--reveal-ready .portal-card{
+  opacity:0;
+  transform:translateY(20px);
+  transition:
+    opacity .7s ease var(--portal-reveal-delay,0ms),
+    transform .7s cubic-bezier(.2,.7,.2,1) var(--portal-reveal-delay,0ms),
+    border-color .3s ease,
+    background-color .3s ease,
+    box-shadow .3s ease;
+}
+.portal-grid--reveal-ready .portal-card.is-visible{opacity:1;transform:translateY(0)}
+.portal-card{
+  transition:all .3s ease;
+  background-color:rgba(13,19,36,.88);
+}
+.portal-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(216,187,122,.72);
+  background-color:rgba(25,28,46,.96);
+  box-shadow:0 24px 65px rgba(0,0,0,.3),0 0 34px rgba(216,187,122,.09);
+}
+.portal-card:hover .portal-art{transform:scale(1.09) rotate(7deg);opacity:1}
+.portal-art{
+  background:radial-gradient(circle,rgba(216,187,122,.10) 0%,rgba(153,132,216,.10) 28%,transparent 68%);
+  animation:portal-icon-halo 4s ease-in-out infinite;
+  will-change:transform,opacity;
+}
+.portal-card:nth-child(2) .portal-art{animation-delay:-1s}
+.portal-card:nth-child(3) .portal-art{animation-delay:-2s}
+.portal-card:nth-child(4) .portal-art{animation-delay:-3s}
+.portal-art::before,.portal-art::after{
+  filter:drop-shadow(0 0 5px rgba(216,187,122,.15));
+}
+.portal-card:hover .portal-art::before,.portal-card:hover .portal-art::after{
+  border-color:rgba(216,187,122,.48);
+  filter:drop-shadow(0 0 8px rgba(216,187,122,.25));
+}
+.portal-card:hover .portal-art b{
+  color:#fff5db;
+  text-shadow:0 0 20px rgba(216,187,122,.52),0 0 38px rgba(178,151,255,.4);
+}
+.portal-card:hover .portal-arrow{
+  background:#d8bb7a;color:#10121a;border-color:#d8bb7a;
+}
+@keyframes portal-icon-halo{
+  0%,100%{scale:.95;opacity:.6}
+  50%{scale:1.05;opacity:1}
+}
+@keyframes portal-stars-twinkle{
+  0%,100%{opacity:.16}
+  50%{opacity:.3}
+}
+@media(hover:none){
+  .portal-card:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .home-portals::before,.home-portals::after,.portal-art{animation:none!important}
+  .portal-grid--reveal-ready .portal-card{
+    opacity:1!important;transform:none!important;transition:none!important
+  }
+  .portal-card,.portal-card::before,.portal-art,.portal-arrow{transition:none!important}
+}
