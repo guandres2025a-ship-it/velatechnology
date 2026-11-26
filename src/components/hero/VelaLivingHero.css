@@ -1229,3 +1229,50 @@
     animation:none!important;
   }
 }
+
+
+/* Reference-led sail silhouette: translucent fabric, horizon and water reflections. */
+.living-sailboat .sailboat-sail-fill{
+  fill:url(#sailboat-sail-fill)!important;
+  stroke:rgba(224,190,151,.58)!important;
+  stroke-width:.75!important;
+  opacity:.9;
+}
+.living-sailboat .sailboat-sail{
+  stroke-width:1.05!important;
+}
+.living-sailboat .sailboat-sail-edge{
+  stroke:url(#sailboat-white)!important;
+  stroke-width:.65!important;
+  opacity:.72;
+}
+.living-sailboat .sailboat-rigging{
+  stroke:rgba(236,211,181,.72)!important;
+  stroke-width:.55!important;
+  opacity:.8;
+}
+.living-sailboat .sailboat-hull,
+.living-sailboat .sailboat-deck{
+  stroke:#f0d7b2!important;
+  stroke-width:.9!important;
+}
+.living-sailboat .sailboat-water{
+  stroke:url(#sailboat-white)!important;
+  stroke-width:.55!important;
+  opacity:.62;
+}
+.living-sailboat .sailboat-reflection{
+  stroke:url(#sailboat-gold)!important;
+  stroke-width:.7!important;
+  opacity:.65;
+}
+.living-sailboat .sailboat-nodes circle{
+  filter:drop-shadow(0 0 3px rgba(255,218,175,.98)) drop-shadow(0 0 9px rgba(205,151,178,.72))!important;
+}
+.living-sailboat-halo{
+  background:radial-gradient(ellipse at 52% 63%,
+    rgba(229,181,146,.18) 0%,
+    rgba(157,104,161,.13) 32%,
+    rgba(80,79,137,.06) 55%,
+    transparent 76%)!important;
+}
