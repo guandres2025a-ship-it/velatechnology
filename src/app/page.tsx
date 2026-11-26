@@ -1,5 +1,6 @@
 import SiteFrame from "../components/layout/SiteFrame";
 import VelaLivingHero from "../components/hero/VelaLivingHero";
+import PortalReveal from "../components/home/PortalReveal";
 
 
 export default function Home() {
@@ -35,7 +36,7 @@ export default function Home() {
             <div><div className="section-kicker"><span>02</span> / NAVEGA EL UNIVERSO</div><h2>Cuatro caminos.<br /><em>Una misma visión.</em></h2></div>
             <p>Explora las dimensiones que dan forma a VELA. Cada una conecta una idea con nuevas posibilidades.</p>
           </div>
-          <div className="portal-grid">
+          <PortalReveal>
             <a className="portal-card portal-card--universe" href="/universo">
               <span className="portal-index">01 <i /> DISCOVER</span>
               <span className="portal-art portal-art--universe" aria-hidden="true"><i /><i /><i /><b>V</b></span>
@@ -60,7 +61,7 @@ export default function Home() {
               <span className="portal-content"><strong>Nuestro enfoque</strong><small>La forma en que conectamos estrategia, diseño y tecnología.</small></span>
               <span className="portal-arrow">↗</span>
             </a>
-          </div>
+          </PortalReveal>
         </div>
       </section>
       <section className="home-contact home-contact--portal" id="contacto">
