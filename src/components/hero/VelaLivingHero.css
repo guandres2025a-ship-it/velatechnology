@@ -1276,3 +1276,19 @@
     rgba(80,79,137,.06) 55%,
     transparent 76%)!important;
 }
+
+
+/* VELA — final micro-polish: stellar nodes and lower orbital caption */
+.living-sailboat .sailboat-nodes circle{
+  filter:
+    drop-shadow(0 0 4px rgba(255,224,185,.98))
+    drop-shadow(0 0 11px rgba(216,187,122,.78))
+    drop-shadow(0 0 15px rgba(157,125,190,.22))!important;
+}
+.living-coordinate--bottom{
+  bottom:5.5%!important;
+  text-shadow:0 0 8px rgba(216,187,122,.16);
+}
+@media(max-width:560px){
+  .living-coordinate--bottom{bottom:5%!important}
+}
